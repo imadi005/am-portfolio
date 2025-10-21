@@ -1,0 +1,339 @@
+@import "tailwindcss";
+
+/* 🎨 Root Theme Variables */
+:root {
+  --background: #0b0b0b;
+  --foreground: #ffffff;
+  --accent: #e50914;
+  --accent-glow: rgba(229, 9, 20, 0.6);
+  --matte-red: #b20710;
+}
+
+/* 🩶 Dark & Light Theme Support */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-accent: var(--accent);
+  --font-sans: "Poppins", sans-serif;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --background: #ffffff;
+    --foreground: #171717;
+  }
+}
+
+/* 🖤 Base Global Style */
+html, body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+/* 🚫 Hide Scrollbar for Netflix feel */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* 🎥 Dynamic Matte Gradient Background */
+.gradient-bg {
+  background: radial-gradient(circle at 50% 50%, #111 0%, #000 70%);
+  background-size: 200% 200%;
+  animation: moveGradient 8s ease-in-out infinite alternate;
+}
+
+@keyframes moveGradient {
+  0% {
+    background-position: 40% 50%;
+  }
+  100% {
+    background-position: 60% 50%;
+  }
+}
+
+/* 🎬 Background Motion — Subtle dynamic black-red shifts */
+@keyframes backgroundMove {
+  0% {
+    background-position: 40% 60%;
+  }
+  50% {
+    background-position: 50% 50%;
+  }
+  100% {
+    background-position: 60% 40%;
+  }
+}
+.animate-backgroundMove {
+  background-size: 200% 200%;
+  animation: backgroundMove 25s ease-in-out infinite alternate;
+}
+
+/* 🌫️ Fog slow movement */
+@keyframes fogMove {
+  0% {
+    transform: translate(-10%, -10%) scale(1.05);
+  }
+  50% {
+    transform: translate(10%, 10%) scale(1.1);
+  }
+  100% {
+    transform: translate(-5%, -5%) scale(1.05);
+  }
+}
+.animate-fogMove {
+  animation: fogMove 45s ease-in-out infinite alternate;
+}
+
+/* ✨ Floating particles (soft drifting effect) */
+@keyframes particle {
+  0% {
+    transform: translateY(0) translateX(0) scale(1);
+    opacity: 0.2;
+  }
+  50% {
+    transform: translateY(-60px) translateX(20px) scale(1.1);
+    opacity: 0.4;
+  }
+  100% {
+    transform: translateY(0) translateX(0) scale(1);
+    opacity: 0.2;
+  }
+}
+.animate-particle {
+  animation: particle 15s ease-in-out infinite;
+}
+
+/* ✨ Soft light sweep motion */
+@keyframes lightSweep {
+  0% {
+    transform: translateX(-20%) translateY(-10%) scale(1);
+    opacity: 0.15;
+  }
+  50% {
+    transform: translateX(10%) translateY(10%) scale(1.05);
+    opacity: 0.25;
+  }
+  100% {
+    transform: translateX(25%) translateY(-10%) scale(1);
+    opacity: 0.15;
+  }
+}
+.animate-lightSweep {
+  animation: lightSweep 18s ease-in-out infinite alternate;
+}
+
+/* 🩸 Matte Button Styling */
+button {
+  transition: all 0.3s ease;
+  border-radius: 9999px;
+}
+button:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.1);
+}
+
+/* 💡 Clean Red Accent */
+.text-accent {
+  color: var(--accent);
+}
+.bg-accent {
+  background-color: var(--accent);
+}
+.border-accent {
+  border-color: var(--accent);
+}
+
+/* 🔥 Subtle Glow Text (only for hero title) */
+.glow-text {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8),
+               0 0 10px rgba(229, 9, 20, 0.15);
+}
+
+/* 🩶 Button Glow (premium matte shadow) */
+.btn-glow {
+  box-shadow: 0 0 10px rgba(229, 9, 20, 0.25);
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+.btn-glow:hover {
+  box-shadow: 0 0 20px rgba(229, 9, 20, 0.35);
+  transform: translateY(-1px);
+}
+
+/* 🎞️ Scroll Fade Animation */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s ease-out forwards;
+}
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 🎞️ Smooth Fade Transitions for page sections */
+section {
+  transition: background 1s ease, transform 0.6s ease;
+}
+
+/* 💫 Utility — Matte red hover for links/buttons */
+.hover-matte-red:hover {
+  background-color: var(--matte-red);
+  color: white;
+}
+
+@keyframes backgroundPulse {
+  0% {
+    background-size: 100% 100%;
+    filter: brightness(1);
+  }
+  50% {
+    background-size: 120% 120%;
+    filter: brightness(1.15);
+  }
+  100% {
+    background-size: 100% 100%;
+    filter: brightness(1);
+  }
+}
+.animate-backgroundPulse {
+  animation: backgroundPulse 10s ease-in-out infinite alternate;
+}
+
+/* 🌫️ Red fog drift */
+@keyframes fogDrift {
+  0% {
+    transform: translate(-10%, -10%) scale(1);
+  }
+  50% {
+    transform: translate(10%, 10%) scale(1.2);
+  }
+  100% {
+    transform: translate(-5%, -5%) scale(1);
+  }
+}
+.animate-fogDrift {
+  animation: fogDrift 25s ease-in-out infinite alternate;
+}
+
+@keyframes fogDriftSlow {
+  0% {
+    transform: translate(10%, 5%) scale(1);
+  }
+  50% {
+    transform: translate(-10%, -15%) scale(1.1);
+  }
+  100% {
+    transform: translate(10%, 5%) scale(1);
+  }
+}
+.animate-fogDriftSlow {
+  animation: fogDriftSlow 40s ease-in-out infinite alternate;
+}
+
+/* ✨ Particle float */
+@keyframes particle {
+  0% {
+    transform: translateY(0) translateX(0);
+  }
+  50% {
+    transform: translateY(-60px) translateX(20px);
+  }
+  100% {
+    transform: translateY(0) translateX(0);
+  }
+}
+.animate-particle {
+  animation: particle 15s ease-in-out infinite;
+}
+
+/* 💡 Light ray sweep */
+@keyframes lightRay {
+  0% {
+    transform: translateX(-30%) rotate(10deg);
+  }
+  50% {
+    transform: translateX(20%) rotate(10deg);
+  }
+  100% {
+    transform: translateX(60%) rotate(10deg);
+  }
+}
+.animate-lightRay {
+  animation: lightRay 30s linear infinite;
+}
+
+.film-grain {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: repeating-radial-gradient(
+    circle at center,
+    rgba(255, 255, 255, 0.05) 0,
+    rgba(255, 255, 255, 0.05) 1px,
+    transparent 1px,
+    transparent 2px
+  );
+  opacity: 0.12;
+  mix-blend-mode: overlay;
+  animation: filmGrainMove 6s steps(6) infinite;
+}
+
+@keyframes filmGrainMove {
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(1%, -1%);
+  }
+  50% {
+    transform: translate(-1%, 1%);
+  }
+  75% {
+    transform: translate(1%, 1%);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.dragging {
+  cursor: grabbing !important;
+  cursor: -webkit-grabbing !important;
+}
+
+@keyframes sweep {
+  0% {
+    background-position: -150%;
+  }
+  100% {
+    background-position: 150%;
+  }
+}
+
+.animate-sweep {
+  background-size: 200%;
+  animation: sweep 2s linear infinite;
+}
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
