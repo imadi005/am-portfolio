@@ -1,6 +1,8 @@
 "use client";
 
+import { SpeedInsights } from "@vercel/speed-insights/next"
 import dynamic from 'next/dynamic';
+
 
 // --- Eagerly Loaded Components (Visible on initial load) ---
 // These load instantly because they are "above the fold".
