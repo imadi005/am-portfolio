@@ -1,11 +1,14 @@
 "use client";
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react"; // We'll use icons for the menu button
+import { Menu, X, ShoppingCart } from "lucide-react"; // We'll use icons for the menu button
+import { useCart } from "../context/CartContext";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { itemCount } = useCart();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -44,6 +47,7 @@ export default function Navbar() {
     { name: "Home", href: "#home" },
     { name: "Results", href: "#results" },
     { name: "Watch Our Videos", href: "#niches" },
+    { name: "Shop", href: "/shop", isPage: true },
     { name: "Contact", href: whatsappLink, isExternal: true },
   ];
 
@@ -66,7 +70,7 @@ export default function Navbar() {
             <li key={item.name}>
               <a
                 href={item.href}
-                onClick={!item.isExternal ? (e) => handleScroll(e, item.href) : undefined}
+                onClick={!item.isExternal && !item.isPage ? (e) => handleScroll(e, item.href) : () => setMobileMenuOpen(false)}
                 target={item.isExternal ? "_blank" : "_self"}
                 rel={item.isExternal ? "noopener noreferrer" : ""}
                 className="hover:text-[#e50914] cursor-pointer transition-colors"
@@ -77,11 +81,22 @@ export default function Navbar() {
           ))}
         </ul>
         
-        {/* Hamburger Icon (visible on mobile) */}
-        <div className="md:hidden">
-          <button onClick={() => setMobileMenuOpen(true)}>
-            <Menu className="text-white h-7 w-7" />
-          </button>
+        <div className="flex items-center gap-4">
+          <Link href="/cart" className="relative">
+            <ShoppingCart className="text-white h-6 w-6 hover:text-[#e50914] transition-colors" />
+            {itemCount > 0 && (
+              <span className="absolute -top-2 -right-2 flex h-4 w-4 items-center justify-center rounded-full bg-[#e50914] text-[10px] font-bold text-white">
+                {itemCount}
+              </span>
+            )}
+          </Link>
+
+          {/* Hamburger Icon (visible on mobile) */}
+          <div className="md:hidden">
+            <button onClick={() => setMobileMenuOpen(true)}>
+              <Menu className="text-white h-7 w-7" />
+            </button>
+          </div>
         </div>
       </motion.nav>
 
@@ -106,7 +121,7 @@ export default function Navbar() {
                 <li key={item.name}>
                   <a
                     href={item.href}
-                    onClick={!item.isExternal ? (e) => handleScroll(e, item.href) : undefined}
+                    onClick={!item.isExternal && !item.isPage ? (e) => handleScroll(e, item.href) : () => setMobileMenuOpen(false)}
                     target={item.isExternal ? "_blank" : "_self"}
                     rel={item.isExternal ? "noopener noreferrer" : ""}
                     className="text-3xl font-semibold text-white hover:text-[#e50914] transition-colors"
