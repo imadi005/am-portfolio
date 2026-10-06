@@ -4,11 +4,36 @@ import { motion, useInView } from "framer-motion";
 import { Volume2, VolumeX, Pause } from "lucide-react";
 
 const STORIES = [
-  { src: "/results/testimonials/t1.mp4", length: "1:32" },
-  { src: "/results/testimonials/t2.mp4", length: "0:39" },
-  { src: "/results/testimonials/t3.mp4", length: "0:39" },
-  { src: "/results/testimonials/t4.mp4", length: "0:32" },
-  { src: "/results/testimonials/t5.mp4", length: "0:32" },
+  {
+    src: "/results/testimonials/t1.mp4",
+    length: "1:32",
+    headline: "Edits + channel automation",
+    quote: "They get inside my head, understand my vision and then bang.",
+  },
+  {
+    src: "/results/testimonials/t2.mp4",
+    length: "0:39",
+    headline: "300+ videos · 2 channels",
+    quote: "Their swift delivery, attention to detail and relentless drive are remarkable.",
+  },
+  {
+    src: "/results/testimonials/t3.mp4",
+    length: "0:39",
+    headline: "14 channels · 2 years",
+    quote: "They're more than just a team, they're genuine partners.",
+  },
+  {
+    src: "/results/testimonials/t4.mp4",
+    length: "0:32",
+    headline: "13 channels transformed",
+    quote: "A&M Productions is pure YouTube magic.",
+  },
+  {
+    src: "/results/testimonials/t5.mp4",
+    length: "0:31",
+    headline: "80+ videos · $20K+ earned",
+    quote: "They take my ideas and turn them into captivating masterpieces.",
+  },
 ];
 
 export default function ClientStories() {
@@ -67,8 +92,9 @@ export default function ClientStories() {
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <span className="flex-1">
-                    <span className="block text-lg font-semibold">Client Story</span>
-                    <span className="block text-xs tracking-widest">{s.length}</span>
+                    <span className="block text-lg font-semibold">{s.headline}</span>
+                    <span className="block text-sm italic text-gray-400">&ldquo;{s.quote}&rdquo;</span>
+                    <span className="mt-1 block text-xs tracking-widest">{s.length}</span>
                   </span>
                   <span
                     className={`h-8 w-1 rounded-full transition ${i === active ? "bg-[#e50914]" : "bg-transparent"}`}
