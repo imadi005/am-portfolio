@@ -111,7 +111,7 @@ export default function ClientResultsSection() {
             className="p-4 md:p-6 rounded-xl bg-black/40 border border-red-900/30 backdrop-blur-sm shadow-[0_0_20px_rgba(255,0,0,0.15)] hover:shadow-[0_0_25px_rgba(255,0,0,0.4)] transition"
           >
             <h3 className={`text-xl sm:text-3xl md:text-5xl font-bold mb-2 whitespace-nowrap ${stat.color}`}>
-              {stat.label === "Total Views" ? (
+              {!/^\$?[\d,]+\+?$/.test(stat.value) ? (
                 stat.value
               ) : (
                 <CountUp
