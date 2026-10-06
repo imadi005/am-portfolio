@@ -66,7 +66,7 @@ export const products = [
     name: "Script Writing",
     priceUSD: 10.0,
     duration: null,
-    features: ["Up to 1600 Words", "AI Free", "Plagiarism Free", "Any Niche"],
+    features: ["Up to 1600 Words", "Tailored to your niche", "Plagiarism Free", "Any Niche"],
   },
   {
     id: "video-edit-4-5-standard",

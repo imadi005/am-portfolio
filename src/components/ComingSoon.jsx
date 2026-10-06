@@ -13,7 +13,7 @@ const PILLARS = [
     icon: Clapperboard,
     k: "THE VIBE",
     t: "Cinematic, never generic",
-    d: "Original scripts, a real human voice and the craft behind 5,000+ videos. No faceless template factories.",
+    d: "Faceless and cinematic, with the craft behind 5,000+ videos. Every video is unique and tailored to your channel.",
   },
   {
     icon: Gem,

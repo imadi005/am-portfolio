@@ -21,7 +21,7 @@ const STEPS = [
   {
     icon: PackageCheck,
     title: "Get your edit",
-    text: "We deliver your video, thumbnail and the revisions included in your plan.",
+    text: "We deliver your unique, tailored video and thumbnail, plus the revisions included in your plan.",
   },
 ];
 

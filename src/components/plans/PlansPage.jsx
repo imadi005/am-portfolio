@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Check, Plus, ShieldCheck, Mic, Target, BarChart3, Handshake, CreditCard } from "lucide-react";
+import { Check, Plus, ShieldCheck, Sparkles, Target, BarChart3, Handshake, CreditCard } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 import Navbar from "../navbar";
 import Footer from "../Footer";
@@ -50,22 +50,22 @@ const WHY = [
 const CHANNEL_TYPES = [
   {
     tag: "TYPE A",
-    title: "Brand channel",
-    who: "For product brands, online sellers (Amazon included) and local or online businesses",
+    title: "Cashcow channel",
+    who: "For anyone who wants a hands-off, income-focused channel in a proven niche",
     points: [
-      "Product demos, comparisons, buyer FAQs and use-case tutorials",
-      "Sales and leads tracked through links (Amazon Attribution and Brand Referral Bonus for brand-registered Amazon sellers)",
-      "AdSense and sponsors later on",
+      "Faceless, cinematic videos in a niche you pick from 30+ (history, finance, space, true crime and more)",
+      "You never appear on camera or record anything",
+      "AdSense, sponsors and affiliate income as the channel grows",
     ],
   },
   {
     tag: "TYPE B",
-    title: "Authority channel",
-    who: "For creators, coaches, experts and agencies who want audience and leads",
+    title: "Brand channel",
+    who: "For product brands, online sellers (Amazon included) and local or online businesses",
     points: [
-      "Expert breakdowns, tutorials, case studies, teardowns and weekly news in your niche",
-      "The face of the channel records the voice or on-camera segments",
-      "AdSense, sponsors, affiliate income and leads for your own business",
+      "Faceless product demos, comparisons, buyer FAQs and explainers",
+      "Sales and leads tracked through links (Amazon Attribution and Brand Referral Bonus for brand-registered Amazon sellers)",
+      "AdSense and sponsors later on",
     ],
   },
 ];
@@ -81,7 +81,7 @@ const SETUP = [
 ];
 
 const MONTHLY = [
-  "Scripted long videos and Shorts, with real human voice or on-camera footage",
+  "Long videos and Shorts, each unique and tailored to your niche",
   "Editing, subtitles, thumbnails, titles, descriptions, tags and scheduling",
   "Community posts and comment moderation guidance",
   "Performance report: views, watch time, CTR, subscribers and tracked traffic, leads or sales",
@@ -138,8 +138,12 @@ const FAQS = [
     a: "Net channel profit is channel revenue (AdSense, sponsors, affiliate, and attributed Amazon Brand Referral Bonus where relevant) minus direct costs such as tools and paid promotion. Our own fees are not deducted from it. The share is paid monthly with Analytics access as proof.",
   },
   {
-    q: "Is it faceless or AI-generated?",
-    a: "No. YouTube demonetises mass-produced, repetitive or template-based content, with or without AI. Every plan uses a real human voice or face, or real product footage, with original scripts and varied formats.",
+    q: "Do I need to appear on camera?",
+    a: "No. Our channels are faceless, so you never need to be on camera or record anything. You share your goals and, if you sell a product, give us access to it. We handle everything else.",
+  },
+  {
+    q: "Is every video unique?",
+    a: "Yes. Every video is made to order around your niche, topic and brief, with its own story, pacing, visuals and sound. Nothing is copied from a template, and each one is tailored to your channel before it ships.",
   },
   {
     q: "Is this only for Amazon sellers?",
@@ -147,7 +151,7 @@ const FAQS = [
   },
   {
     q: "Which channel type should I choose?",
-    a: "Type A (Brand channel) suits product brands and online sellers. Type B (Authority channel) suits creators, coaches, experts and agencies who want to grow an audience and generate leads. We help you decide on the first call.",
+    a: "Type A (Cashcow channel) suits anyone who wants an income-focused, hands-off channel in a proven niche. Type B (Brand channel) suits product brands and sellers who want to drive traffic, leads and sales. We help you decide on the first call.",
   },
   {
     q: "How soon will the channel earn from ads?",
@@ -289,7 +293,7 @@ export default function PlansPage() {
             </a>
           </div>
           <div className="mt-10 flex flex-wrap gap-x-8 gap-y-2 text-sm text-gray-400">
-            {["You own the channel", "Human voice or face, never faceless templates", "Tracked links and reporting", "Plans from $1,200 setup"].map((t) => (
+            {["You own the channel", "Faceless: you never appear on camera", "Tracked links and reporting", "Plans from $1,200 setup"].map((t) => (
               <span key={t} className="flex items-center gap-2">
                 <Check size={16} className="text-[#e50914]" /> {t}
               </span>
@@ -350,7 +354,7 @@ export default function PlansPage() {
             ))}
           </div>
           <p className="mt-4 text-sm text-gray-500">
-            Our recommendation: Type A for product brands and sellers, Type B for creators, coaches and agency owners.
+            Our recommendation: the Cashcow channel for hands-off income, the Brand channel when you want to drive sales for a business.
           </p>
         </div>
       </section>
@@ -446,7 +450,7 @@ export default function PlansPage() {
         <div className="mx-auto max-w-6xl">
           <Eyebrow>THE FIRST 90 DAYS</Eyebrow>
           <h2 className="mt-1 text-5xl md:text-7xl">What we publish</h2>
-          <p className="mt-2 text-gray-400">An example roadmap for a Brand channel. The Authority channel runs on weekly formats such as expert breakdowns, case studies, teardowns and news.</p>
+          <p className="mt-2 text-gray-400">An example roadmap for a Brand channel. The Cashcow channel follows the same rhythm with niche-led stories, series and trending topics.</p>
           <div className="mt-10 grid gap-5 md:grid-cols-3">
             {ROADMAP.map((r, i) => (
               <motion.div key={r.m} {...fade} transition={{ duration: 0.6, delay: i * 0.1 }} className="rounded-xl border border-white/10 bg-gradient-to-b from-[#1a0003] to-black p-6">
@@ -460,20 +464,20 @@ export default function PlansPage() {
         </div>
       </section>
 
-      {/* Policy-safe promise */}
+      {/* Made to order */}
       <section className="px-6 py-16 md:px-16">
         <div className="mx-auto max-w-6xl overflow-hidden rounded-2xl border border-[#e50914]/30 bg-gradient-to-r from-[#1a0003] via-black to-black p-8 md:p-12">
           <div className="flex items-start gap-5">
             <span className="hidden h-14 w-14 flex-shrink-0 items-center justify-center rounded-full bg-[#e50914] md:flex">
-              <Mic />
+              <Sparkles />
             </span>
             <div>
-              <Eyebrow>BUILT AROUND YOUTUBE&apos;S RULES</Eyebrow>
-              <h2 className="mt-1 text-4xl md:text-6xl">No faceless content factories</h2>
+              <Eyebrow>MADE TO ORDER</Eyebrow>
+              <h2 className="mt-1 text-4xl md:text-6xl">No two videos alike</h2>
               <p className="mt-3 max-w-3xl leading-relaxed text-gray-300">
-                YouTube demonetises mass-produced, repetitive or template-based content, with or without AI. So every plan uses a real human voice or
-                face, or real product footage, with original scripts and varied formats. It protects your channel&apos;s monetisation, and it is simply
-                better content.
+                Every video is built around your niche, topic and brief, with its own story, pacing, visuals and sound. Nothing is copied from a
+                template, and each one is tailored to your channel before it ships. The result is a channel with its own identity, not a feed of
+                lookalikes.
               </p>
             </div>
           </div>

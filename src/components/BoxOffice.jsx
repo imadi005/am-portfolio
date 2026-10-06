@@ -90,7 +90,7 @@ export default function BoxOffice() {
             <p className="text-xs font-bold tracking-[0.35em] text-[#e50914]">THE BOX OFFICE</p>
             <h2 className="mt-1 text-5xl md:text-7xl">Get your ticket to a better video</h2>
             <p className="mt-2 max-w-xl text-gray-400">
-              Pick your show. Pay in USD or INR. Send your brief on WhatsApp and we roll camera.
+              Pick your show. Every video is made to order: unique to your channel, tailored to your niche. Pay in USD or INR, send your brief on WhatsApp and we roll camera.
             </p>
           </div>
           <CurrencySwitcher />

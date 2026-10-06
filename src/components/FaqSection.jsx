@@ -5,6 +5,10 @@ import { Plus } from "lucide-react";
 
 const FAQS = [
   {
+    q: "Is every video unique?",
+    a: "Yes. Every video is made to order around your niche, topic and brief, with its own story, pacing, visuals and sound. Nothing is copied from a template, and each one is tailored to your channel before it ships.",
+  },
+  {
     q: "What do I get with each package?",
     a: "Every Cashcow package includes the edit, a high quality thumbnail, multiple voice options and a set number of revisions: Basic Burst has 1, Standard Storyboard and Advanced Artistry have 3, and Premier Production has 4. Packages cover videos of 4-5 or 8-10 minutes.",
   },
@@ -14,7 +18,7 @@ const FAQS = [
   },
   {
     q: "Can I buy just one thing, like a thumbnail or a script?",
-    a: "Yes. Thumbnails, scripts (up to 1600 words, AI free and plagiarism free), and video edits are all sold individually in the shop.",
+    a: "Yes. Thumbnails, scripts (up to 1600 words, tailored to your niche and plagiarism free), and video edits are all sold individually in the shop.",
   },
   {
     q: "How do I pay, and which currencies do you accept?",
