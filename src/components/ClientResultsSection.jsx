@@ -76,27 +76,9 @@ function useAutoPoster(videoSrc) {
 
 // --- MAIN COMPONENT ---
 export default function ClientResultsSection() {
-  const [views, setViews] = useState(112168912);
-  const [isClient, setIsClient] = useState(false);
-
-  useEffect(() => {
-    setIsClient(true);
-    const saved = localStorage.getItem("totalViews");
-    if (saved) setViews(parseInt(saved, 10));
-
-    const interval = setInterval(() => {
-      setViews((v) => {
-        const newVal = v + Math.floor(Math.random() * 3 + 2);
-        localStorage.setItem("totalViews", String(newVal));
-        return newVal;
-      });
-    }, 1000);
-    return () => clearInterval(interval);
-  }, []);
-
   const stats = [
     { label: "Videos Produced", value: "5000+", color: "text-red-500" },
-    { label: "Total Views", value: isClient ? views.toLocaleString("en-US") : "...", color: "text-white" },
+    { label: "Total Views", value: "110000000+", color: "text-white" },
     { label: "Average View Duration", value: "60-70%", color: "text-red-400" },
     { label: "CTR", value: "10%+", color: "text-white" },
     { label: "Revenue Generated", value: "$1,000,000+", color: "text-green-400" },
