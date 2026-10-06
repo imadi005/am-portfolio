@@ -72,14 +72,14 @@ export default function TopEditsSection() {
           ref={railRef}
           onMouseEnter={() => (hoverRef.current = true)}
           onMouseLeave={() => (hoverRef.current = false)}
-          className="flex gap-12 px-20 overflow-x-auto no-scrollbar"
+          className="flex gap-12 px-20 py-8 overflow-x-auto no-scrollbar"
         >
           {duplicatedEdits.map((edit, index) => (
             <motion.div
               key={`${edit.rank}-${index}`}
               initial={{ boxShadow: "0px 0px 0px rgba(255,0,0,0)" }}
               whileHover={{
-                scale: 0.8,
+                scale: 1.06,
                 boxShadow: "0px 0px 40px rgba(255,0,0,0.7)",
               }}
               transition={{ duration: 0.3, ease: "easeInOut" }}

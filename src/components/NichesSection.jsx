@@ -135,7 +135,7 @@ export default function NichesSection() {
         {/* Infinite Slider */}
         <div
           ref={railRef}
-          className="flex gap-5 no-scrollbar select-none cursor-grab active:cursor-grabbing"
+          className="flex gap-5 py-8 no-scrollbar select-none cursor-grab active:cursor-grabbing"
           style={{
             overflowX: "scroll",
             scrollSnapType: "x mandatory",
@@ -148,7 +148,7 @@ export default function NichesSection() {
               className="relative flex-shrink-0 w-[220px] h-[293px] sm:w-[250px] sm:h-[333px] md:w-[280px] md:h-[373px] rounded-lg overflow-hidden"
               initial={{ scale: 0.95, opacity: 0.85 }}
               whileHover={{
-                scale: 0.85,
+                scale: 1.08,
                 opacity: 1,
                 zIndex: 20,
                 boxShadow: "0 0 30px 6px rgba(255, 0, 0, 0.7)",
