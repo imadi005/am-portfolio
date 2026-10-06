@@ -23,8 +23,15 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "A&M Productions",
-  openGraph: { images: ["/logo.png"] },
+  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || "https://www.amgproductions.studio"),
+  title: { default: "A&M Productions | Cinematic YouTube Edits", template: "%s | A&M Productions" },
+  openGraph: {
+    type: "website",
+    siteName: "A&M Productions",
+    title: "A&M Productions | Cinematic YouTube Edits",
+    images: [{ url: "/logo.png", width: 500, height: 500 }],
+  },
+  twitter: { card: "summary", title: "A&M Productions", images: ["/logo.png"] },
   description: "A&M Productions specializes in producing high-impact, viral video edits that dominate the algorithm. Turn your content into cinematic magic.",
 };
 

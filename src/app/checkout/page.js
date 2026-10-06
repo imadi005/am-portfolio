@@ -50,6 +50,15 @@ export default function CheckoutPage() {
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || "Could not start payment.");
 
+      window.localStorage.setItem(
+        "last-order",
+        JSON.stringify({
+          orderId: data.orderId,
+          items: items.map((i) => `${i.name} x${i.qty}`),
+          name: customer.name,
+        })
+      );
+
       const cashfree = window.Cashfree({
         mode: (process.env.NEXT_PUBLIC_CASHFREE_ENV || "sandbox").toLowerCase(),
       });

@@ -13,6 +13,25 @@ function SuccessContent() {
 
   const [status, setStatus] = useState("checking");
   const [details, setDetails] = useState(null);
+  const [lastOrder, setLastOrder] = useState(null);
+
+  useEffect(() => {
+    try {
+      const saved = JSON.parse(window.localStorage.getItem("last-order") || "null");
+      if (saved?.orderId === orderId) setLastOrder(saved);
+    } catch {}
+  }, [orderId]);
+
+  const briefLink = `https://wa.me/916299043460?text=${encodeURIComponent(
+    `Hi A&M Productions, I just paid for order ${orderId}${
+      lastOrder?.items?.length ? ` (${lastOrder.items.join(", ")})` : ""
+    }. Here is my project brief:
+
+YouTube channel link:
+Video topic / script:
+Reference videos:
+Deadline:`
+  )}`;
 
   useEffect(() => {
     if (!orderId) {
@@ -48,8 +67,16 @@ function SuccessContent() {
             <h1 className="text-3xl font-bold text-green-500">Payment Successful!</h1>
             <p className="mt-4 text-gray-300">
               Order {details?.orderId} confirmed for {details?.orderAmount} {details?.orderCurrency}.
-              We'll reach out shortly with next steps.
+              Next step: send us your project brief so we can start.
             </p>
+            <a
+              href={briefLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-6 inline-block rounded-md bg-[#e50914] px-8 py-3 text-lg font-bold text-white hover:bg-[#b20710]"
+            >
+              Send Brief on WhatsApp
+            </a>
           </>
         )}
         {(status === "active" || status === "pending" || status === "expired") && (
