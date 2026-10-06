@@ -95,10 +95,10 @@ export default function SearchOverlay() {
 
         <h2 className="mt-8 text-2xl text-white">{term ? "Niches" : "Browse by niche"}</h2>
         {niches.length === 0 && <p className="mt-3 text-gray-400">No titles match &ldquo;{q}&rdquo;.</p>}
-        <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-5">
+        <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4">
           {niches.map((n) => (
-            <button key={n.id} onClick={() => openNiche(n.id)} className="group relative aspect-[3/4] overflow-hidden rounded-md">
-              <img src={n.cover} alt={n.title} loading="lazy" className="h-full w-full object-cover transition group-hover:scale-105" />
+            <button key={n.id} onClick={() => openNiche(n.id)} className="group relative aspect-video overflow-hidden rounded-md">
+              <img src={`https://i.ytimg.com/vi/${n.videos[0].id}/hqdefault.jpg`} alt={n.title} loading="lazy" className="h-full w-full object-cover transition group-hover:scale-105" />
               <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black p-2 text-left text-sm font-semibold text-white">
                 {n.title}
               </span>

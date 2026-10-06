@@ -157,7 +157,7 @@ export const NICHES = [
     ],
   },
   {
-  id: " US President",
+  id: "us-president",
   title: "President",
   cover: "/niches/president.png",
   tagline: "Power. Policy. Presence.",
