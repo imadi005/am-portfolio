@@ -2,6 +2,7 @@
 import { useEffect, useState, useRef } from "react";
 import { motion } from "framer-motion";
 import CountUp from "react-countup";
+import ResultsGallery from "./ResultsGallery";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 // --- Helper Hook to Generate Poster ---
@@ -130,7 +131,7 @@ export default function ClientResultsSection() {
 
       <div className="absolute bottom-0 w-full h-[3px] bg-gradient-to-r from-transparent via-red-700/60 to-transparent blur-[2px]" />
 
-      <ResultsShowreel />
+      <ResultsGallery />
       <VideoShowreel />
       <TestimonialsSection />
     </section>
@@ -228,61 +229,6 @@ function useAutoscrollAndDrag(railRef) {
   }, []);
 
   return { isHovering };
-}
-
-// --- FIXED IMAGE SLIDER ---
-function ResultsShowreel() {
-  const railRef = useRef(null);
-  const { isHovering } = useAutoscrollAndDrag(railRef);
-
-  const scroll = (dir) => {
-    const rail = railRef.current;
-    if (!rail) return;
-    const amount = rail.clientWidth * 0.8;
-    rail.scrollBy({ left: dir === "right" ? amount : -amount, behavior: "smooth" });
-  };
-
-  const items = Array.from({ length: 17 }).map((_, i) => `/results/r${i + 1}.jpeg`);
-
-  return (
-    <div
-      className="relative w-full mt-16 overflow-hidden"
-      onMouseEnter={() => (isHovering.current = true)}
-      onMouseLeave={() => (isHovering.current = false)}
-    >
-      <div
-        ref={railRef}
-        className="flex gap-4 px-6 py-6 overflow-x-scroll no-scrollbar cursor-grab"
-        style={{ scrollBehavior: "smooth" }}
-      >
-        {[...items, ...items].map((src, i) => (
-          <motion.img
-            key={i}
-            src={src}
-            alt=""
-            whileHover={{ scale: 1.05 }}
-            transition={{ duration: 0.3 }}
-            className="rounded-xl border border-red-500/40 shadow-[0_0_20px_rgba(255,0,0,0.5)] w-[300px] h-[170px] object-contain bg-black flex-shrink-0"
-          />
-        ))}
-      </div>
-
-      <div className="hidden md:flex absolute inset-y-0 justify-between items-center w-full px-4 pointer-events-none">
-        <button
-          onClick={() => scroll("left")}
-          className="p-2 bg-black/60 rounded-full pointer-events-auto hover:bg-red-600 transition"
-        >
-          <ChevronLeft />
-        </button>
-        <button
-          onClick={() => scroll("right")}
-          className="p-2 bg-black/60 rounded-full pointer-events-auto hover:bg-red-600 transition"
-        >
-          <ChevronRight />
-        </button>
-      </div>
-    </div>
-  );
 }
 
 // --- FIXED VIDEO SLIDER ---
