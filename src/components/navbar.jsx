@@ -60,9 +60,9 @@ export default function Navbar() {
             : "bg-gradient-to-b from-black/80 to-transparent"
         }`}
       >
-        <a href="#home" onClick={(e) => handleScroll(e, "#home")} className="cursor-pointer">
-          <h1 className="text-3xl font-bold text-[#e50914] tracking-wider">A&M</h1>
-        </a>
+        <Link href="/" aria-label="A&M Productions home" className="cursor-pointer">
+          <img src="/logo.png" alt="A&M Productions" className="h-12 w-12 object-contain" />
+        </Link>
 
         {/* Desktop Menu (hidden on mobile) */}
         <ul className="hidden md:flex space-x-8 text-sm font-semibold text-white">

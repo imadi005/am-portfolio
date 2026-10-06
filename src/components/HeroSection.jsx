@@ -96,6 +96,14 @@ export default function HeroSection() {
       </div>
 
       {/* 🟥 Hero Content */}
+      <motion.img
+        src="/logo.png"
+        alt="A&M Productions logo"
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1 }}
+        className="z-30 mb-2 h-28 w-28 sm:h-36 sm:w-36 object-contain"
+      />
       <motion.h1
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}

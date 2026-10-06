@@ -15,6 +15,7 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
   title: "A&M Productions",
+  openGraph: { images: ["/logo.png"] },
   description: "A&M Productions specializes in producing high-impact, viral video edits that dominate the algorithm. Turn your content into cinematic magic.",
 };
 
