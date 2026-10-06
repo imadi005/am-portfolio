@@ -1,19 +1,10 @@
 "use client";
-import Image from "next/image";
 
-import { useRef, useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { TOP_EDITS } from "../data/topEdits";
-import EditModal from "./EditModal";
+import TopTenChart from "./TopTenChart";
 import { FaWhatsapp } from "react-icons/fa";
 
 export default function TopEditsSection() {
-  const railRef = useRef(null);
-  const rafRef = useRef(null);
-  const hoverRef = useRef(false);
-  const [selected, setSelected] = useState(null);
-  const [open, setOpen] = useState(false);
-
   // --- WHATSAPP LINK SETUP ---
   const whatsappNumber = "916299043460"; // Your number without '+'
   const defaultMessage =
@@ -24,103 +15,10 @@ export default function TopEditsSection() {
   )}`;
   // --- END SETUP ---
 
-  const duplicatedEdits = [...TOP_EDITS, ...TOP_EDITS];
-
-  useEffect(() => {
-    const rail = railRef.current;
-    if (!rail) return;
-    let halfwayPoint = rail.scrollWidth / 2;
-
-    const tick = () => {
-      if (halfwayPoint > 0 && !hoverRef.current) {
-        rail.scrollLeft += 0.8;
-        if (rail.scrollLeft >= halfwayPoint) {
-          rail.scrollLeft = 0;
-        }
-      } else {
-        // Recalculate if it was 0 initially
-        halfwayPoint = rail.scrollWidth / 2;
-      }
-      rafRef.current = requestAnimationFrame(tick);
-    };
-    rafRef.current = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(rafRef.current);
-  }, []);
-
   return (
     // We use a React Fragment to return two separate sections
     <>
-      <section id="top10" className="relative w-full bg-black pt-24 pb-10 text-white overflow-hidden scroll-mt-16">
-        {/* Header */}
-        <div className="mb-4 px-6 md:px-16">
-          <motion.h2
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-4xl md:text-5xl"
-          >
-            Top 10 Edits
-          </motion.h2>
-          <p className="mt-1 max-w-2xl text-gray-400">
-            Our ten most-watched edits right now.
-          </p>
-        </div>
-
-        {/* Slider */}
-        <div
-          ref={railRef}
-          onMouseEnter={() => (hoverRef.current = true)}
-          onMouseLeave={() => (hoverRef.current = false)}
-          className="flex gap-12 px-20 py-8 overflow-x-auto no-scrollbar"
-        >
-          {duplicatedEdits.map((edit, index) => (
-            <motion.div
-              key={`${edit.rank}-${index}`}
-              initial={{ boxShadow: "0px 0px 0px rgba(255,0,0,0)" }}
-              whileHover={{
-                scale: 1.06,
-                boxShadow: "0px 0px 40px rgba(255,0,0,0.7)",
-              }}
-              transition={{ duration: 0.3, ease: "easeInOut" }}
-              onClick={() => {
-                setSelected(edit);
-                setOpen(true);
-              }}
-              className="relative flex-shrink-0 cursor-pointer overflow-visible mx-10 rounded-xl"
-              style={{ width: "260px", aspectRatio: "3 / 4" }}
-            >
-              <span
-                className={`absolute top-1/2 left-0 -translate-y-1/2 text-[11rem] font-extrabold leading-none text-transparent bg-clip-text z-40 select-none pointer-events-none opacity-40 ${
-                  edit.rank === 1
-                    ? "bg-gradient-to-b from-yellow-300 to-red-600"
-                    : edit.rank === 2
-                    ? "bg-gradient-to-b from-gray-300 to-gray-600"
-                    : edit.rank === 3
-                    ? "bg-gradient-to-b from-orange-300 to-orange-600"
-                    : "bg-gradient-to-b from-gray-400 to-gray-600"
-                }`}
-                style={{
-                  transform: "translateX(-70%) translateY(-50%)",
-                }}
-              >
-                {edit.rank}
-              </span>
-              <div className="relative z-20 h-full w-full overflow-hidden rounded-xl transition-all duration-300">
-                <Image
-                  src={edit.cover}
-                  alt={edit.title}
-                  fill
-                  sizes="260px"
-                  className="object-cover rounded-xl"
-                />
-              </div>
-            </motion.div>
-          ))}
-        </div>
-
-        <EditModal edit={selected} open={open} onClose={() => setOpen(false)} />
-      </section>
+      <TopTenChart />
 
       {/* --- NEW CLICKBAIT CTA SECTION --- */}
       <section className="relative bg-black text-white py-24 px-8 text-center overflow-hidden">
