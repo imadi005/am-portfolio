@@ -7,7 +7,11 @@ const TEAM = [
     name: "Aditya",
     role: "Founder & CEO",
     photo: "/team/aditya.jpg",
-    bio: "Aditya started A&M Productions in 2021 with one belief: YouTube content deserves the same craft as cinema. Since then he has built the studio from a small creative team into a production house trusted by 170+ channels, leading every project with a clear creative vision and an obsession for retention, pace and story.",
+    bio: [
+      "I started A&M Productions in 2021 with one belief: YouTube content deserves the same craft as cinema. What began as a small creative team is now a studio trusted by 170+ channels.",
+      "I am a perfectionist, and I make no apology for it. Every cut, every transition, every second of pacing is checked until it earns its place. If a frame does not make the viewer stay, it does not ship.",
+      "My vision is simple: to build the most respected name in YouTube production, where creators come not just for edits, but for a legacy they are proud to put their name on.",
+    ],
     stats: [
       { value: "2021", label: "Founded" },
       { value: "170+", label: "Channels" },
@@ -38,7 +42,7 @@ export default function TeamSection() {
                 alt={`${m.name}, ${m.role}`}
                 fill
                 sizes="320px"
-                className="object-cover object-[50%_40%]"
+                className="object-cover object-center"
               />
               <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/80 to-transparent" />
             </div>
@@ -46,7 +50,11 @@ export default function TeamSection() {
             <div>
               <h3 className="text-5xl md:text-6xl">{m.name}</h3>
               <p className="mt-1 text-lg font-semibold text-[#e50914]">{m.role}</p>
-              <p className="mt-5 max-w-xl text-lg leading-relaxed text-gray-300">{m.bio}</p>
+              <div className="mt-5 max-w-xl space-y-4 text-lg leading-relaxed text-gray-300">
+                {m.bio.map((para) => (
+                  <p key={para.slice(0, 20)}>{para}</p>
+                ))}
+              </div>
               <div className="mt-8 flex gap-8">
                 {m.stats.map((s) => (
                   <div key={s.label}>
