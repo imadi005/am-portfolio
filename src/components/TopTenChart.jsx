@@ -129,7 +129,7 @@ export default function TopTenChart() {
         </div>
       </div>
 
-      <EditModal edit={edit} open={open} onClose={() => setOpen(false)} />
+      <EditModal edit={edit} open={open} onClose={() => setOpen(false)} onSelect={setActive} />
     </section>
   );
 }
