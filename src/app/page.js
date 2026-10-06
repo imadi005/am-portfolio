@@ -6,6 +6,7 @@ import dynamic from "next/dynamic";
 import Navbar from "../components/navbar";
 import HeroSection from "../components/HeroSection";
 import Footer from "../components/Footer";
+import PriceTicker from "../components/PriceTicker";
 
 const LoadingPlaceholder = () => (
   <div className="w-full bg-black px-6 py-10 md:px-16">
@@ -24,7 +25,10 @@ const ShowreelSection = lazy(() => import("../components/ShowreelSection"));
 const TopTenChart = lazy(() => import("../components/TopTenChart"));
 const NichesSection = lazy(() => import("../components/NichesSection"));
 const HowItWorks = lazy(() => import("../components/HowItWorks"));
-const PlansTeaser = lazy(() => import("../components/PlansTeaser"));
+const BoxOffice = lazy(() => import("../components/BoxOffice"));
+const Concessions = lazy(() => import("../components/Concessions"));
+const ComingSoon = lazy(() => import("../components/ComingSoon"));
+const StudioDeal = lazy(() => import("../components/StudioDeal"));
 const ClientResultsSection = lazy(() => import("../components/ClientResultsSection"));
 const OurStorySection = lazy(() => import("../components/OurStorySection"));
 const TeamSection = lazy(() => import("../components/TeamSection"));
@@ -36,12 +40,16 @@ export default function Home() {
     <main className="relative min-h-screen overflow-x-hidden bg-black text-white">
       <Navbar />
       <HeroSection />
+      <PriceTicker />
       <ShowreelSection />
+      <BoxOffice />
       <TopTenChart />
+      <Concessions />
       <NichesSection />
-      <HowItWorks />
-      <PlansTeaser />
+      <ComingSoon />
       <ClientResultsSection />
+      <StudioDeal />
+      <HowItWorks />
       <OurStorySection />
       <TeamSection />
       <FaqSection />

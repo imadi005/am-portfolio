@@ -40,11 +40,11 @@ export default function Navbar() {
   const navItems = [
     { name: "Home", href: "#home" },
     { name: "Showreel", href: "#showreel" },
+    { name: "Box Office", href: "#packages" },
     { name: "Browse", href: "#niches" },
+    { name: "Studio Deal", href: "#channel-plans" },
     { name: "Results", href: "#results" },
     { name: "Our Story", href: "#story" },
-    { name: "Channel Plans", href: "/plans", isPage: true },
-    { name: "Shop", href: "/shop", isPage: true },
     { name: `My List${ids.length ? ` (${ids.length})` : ""}`, href: "/my-list", isPage: true },
     { name: "Contact", href: whatsappLink, isExternal: true },
   ];

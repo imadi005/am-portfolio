@@ -356,3 +356,18 @@ h1 { line-height: 0.95; }
   background-size: 800px 100%;
   animation: shimmer 1.4s infinite linear;
 }
+
+/* Price ticker marquee */
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.ticker-track {
+  animation: ticker 40s linear infinite;
+}
+.ticker-track:hover {
+  animation-play-state: paused;
+}
+@media (prefers-reduced-motion: reduce) {
+  .ticker-track { animation: none; }
+}

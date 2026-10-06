@@ -123,6 +123,16 @@ export default function TopTenChart() {
                 >
                   <Play size={18} fill="currentColor" /> Watch this edit
                 </button>
+                <a
+                  href="#packages"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document.querySelector("#packages")?.scrollIntoView({ behavior: "smooth" });
+                  }}
+                  className="mt-2 flex items-center justify-center gap-2 rounded-md bg-[#e50914] px-6 py-2.5 font-bold text-white transition hover:bg-[#b20710]"
+                >
+                  Get a cut like this
+                </a>
               </motion.div>
             </AnimatePresence>
           </div>

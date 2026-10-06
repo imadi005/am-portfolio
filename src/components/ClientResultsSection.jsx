@@ -65,6 +65,22 @@ export default function ClientResultsSection() {
       <ResultsGallery />
       <ReelStage />
       <ClientStories />
+
+      <div className="relative mt-4 px-6 text-center">
+        <h3 className="text-4xl md:text-6xl">Want your name on the next poster?</h3>
+        <p className="mx-auto mt-2 max-w-xl text-gray-400">Start with a single feature, or let us produce the whole channel for you.</p>
+        <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
+          <a
+            href="#packages"
+            className="rounded-md bg-[#e50914] px-8 py-3 font-bold text-white shadow-[0_0_25px_rgba(229,9,20,0.5)] transition hover:bg-[#b20710]"
+          >
+            Get a ticket
+          </a>
+          <a href="#channel-plans" className="rounded-md bg-white px-8 py-3 font-bold text-black transition hover:bg-white/80">
+            Make the studio deal
+          </a>
+        </div>
+      </div>
     </section>
   );
 }

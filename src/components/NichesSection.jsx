@@ -96,6 +96,16 @@ function Spotlight({ niche, onPlay }) {
           >
             {saved ? <Check size={18} /> : <Plus size={18} />} My List
           </button>
+          <a
+            href="#packages"
+            onClick={(e) => {
+              e.preventDefault();
+              document.querySelector("#packages")?.scrollIntoView({ behavior: "smooth" });
+            }}
+            className="flex items-center gap-2 rounded-md bg-[#e50914] px-5 py-2.5 font-bold text-white shadow-[0_0_20px_rgba(229,9,20,0.5)] transition hover:bg-[#b20710]"
+          >
+            Get this look
+          </a>
         </div>
       </div>
     </div>

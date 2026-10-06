@@ -141,6 +141,17 @@ export default function VideoTheatre({
                       >
                         Watch on YouTube <ExternalLink size={16} />
                       </a>
+                      <a
+                        href="#packages"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          onClose();
+                          setTimeout(() => document.querySelector("#packages")?.scrollIntoView({ behavior: "smooth" }), 350);
+                        }}
+                        className="rounded-md bg-white px-5 py-2.5 text-sm font-bold text-black transition hover:bg-white/80"
+                      >
+                        Get a cut like this
+                      </a>
                       {hasList && (
                         <div className="flex gap-2">
                           <button
