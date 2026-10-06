@@ -23,15 +23,14 @@ function SuccessContent() {
     } catch {}
   }, [orderId]);
 
+  const isPlan = lastOrder?.items?.some((i) => i.startsWith("Channel Plan"));
+  const briefBody = isPlan
+    ? "Here are my details so we can plan the kick-off call:\n\nName:\nChannel / business / niche:\nChannel link (if any):\nBest time for a call (with time zone):"
+    : "Here is my project brief:\n\nYouTube channel link:\nVideo topic / script:\nReference videos:\nDeadline:";
   const briefLink = `https://wa.me/916299043460?text=${encodeURIComponent(
     `Hi A&M Productions, I just paid for order ${orderId}${
       lastOrder?.items?.length ? ` (${lastOrder.items.join(", ")})` : ""
-    }. Here is my project brief:
-
-YouTube channel link:
-Video topic / script:
-Reference videos:
-Deadline:`
+    }. ${briefBody}`
   )}`;
 
   useEffect(() => {
@@ -68,7 +67,7 @@ Deadline:`
             <h1 className="text-3xl font-bold text-green-500">Payment Successful!</h1>
             <p className="mt-4 text-gray-300">
               Order {details?.orderId} confirmed for {details?.orderAmount} {details?.orderCurrency}.
-              Next step: send us your project brief so we can start.
+              Next step: message us on WhatsApp so we can start.
             </p>
             <a
               href={briefLink}
@@ -76,7 +75,7 @@ Deadline:`
               rel="noopener noreferrer"
               className="mt-6 inline-block rounded-md bg-[#e50914] px-8 py-3 text-lg font-bold text-white hover:bg-[#b20710]"
             >
-              Send Brief on WhatsApp
+              Message Us on WhatsApp
             </a>
           </>
         )}

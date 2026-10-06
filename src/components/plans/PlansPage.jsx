@@ -1,14 +1,16 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
-import { Check, Plus, ShieldCheck, Mic, Target, BarChart3, Handshake } from "lucide-react";
+import { Check, Plus, ShieldCheck, Mic, Target, BarChart3, Handshake, CreditCard } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 import Navbar from "../navbar";
 import Footer from "../Footer";
 import CurrencySwitcher from "../shop/CurrencySwitcher";
 import { useCurrency } from "../../context/CurrencyContext";
-import { PLANS, COMPARE_ROWS, planWhatsApp } from "../../data/plans";
+import { useCart } from "../../context/CartContext";
+import { PLANS, COMPARE_ROWS, planWhatsApp, planProductId } from "../../data/plans";
 
 const WHATSAPP_GENERAL = `https://wa.me/916299043460?text=${encodeURIComponent(
   "Hi A&M Productions, I'd like to know more about your done-for-you YouTube channel plans."
@@ -158,8 +160,19 @@ const FAQS = [
   },
 ];
 
+function useBuyNow() {
+  const { clearCart, addItem } = useCart();
+  const router = useRouter();
+  return (plan) => {
+    clearCart();
+    addItem(planProductId(plan), 1);
+    router.push("/checkout");
+  };
+}
+
 function PlanCard({ plan, index }) {
   const { format } = useCurrency();
+  const buyNow = useBuyNow();
   const shades = [
     "from-[#4a0006] via-[#1d0003] to-black",
     "from-[#5e0008] via-[#220003] to-black",
@@ -205,20 +218,30 @@ function PlanCard({ plan, index }) {
         ))}
       </ul>
 
-      <a
-        href={planWhatsApp(plan)}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="relative mt-6 flex items-center justify-center gap-2 rounded-md bg-white px-5 py-3 font-bold text-black transition hover:bg-white/80"
-      >
-        <FaWhatsapp size={18} /> Choose Plan {plan.code}
-      </a>
+      <div className="relative mt-6 space-y-2">
+        <button
+          onClick={() => buyNow(plan)}
+          className="flex w-full items-center justify-center gap-2 rounded-md bg-[#e50914] px-5 py-3 font-bold text-white shadow-[0_0_25px_rgba(229,9,20,0.45)] transition hover:bg-[#b20710]"
+        >
+          <CreditCard size={18} /> Buy now · {format(plan.cashStart)}
+        </button>
+        <a
+          href={planWhatsApp(plan)}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex w-full items-center justify-center gap-2 rounded-md bg-white px-5 py-3 font-bold text-black transition hover:bg-white/80"
+        >
+          <FaWhatsapp size={18} /> Book a call
+        </a>
+        <p className="text-center text-[11px] text-gray-500">Buy now = setup + first month, paid securely via Cashfree</p>
+      </div>
     </motion.div>
   );
 }
 
 function CompareTable() {
   const { format } = useCurrency();
+  const buyNow = useBuyNow();
   return (
     <div className="mt-10 overflow-x-auto rounded-xl border border-white/10">
       <table className="w-full min-w-[760px] border-collapse text-left text-sm">
@@ -247,6 +270,29 @@ function CompareTable() {
               })}
             </tr>
           ))}
+          <tr className="border-t border-white/10 bg-white/[0.03]">
+            <td className="sticky left-0 z-10 bg-[#0d0d0d] px-4 py-4 font-medium text-gray-300">Get started</td>
+            {PLANS.map((p) => (
+              <td key={p.id} className="px-4 py-4">
+                <div className="flex flex-col gap-2">
+                  <button
+                    onClick={() => buyNow(p)}
+                    className="rounded-md bg-[#e50914] px-4 py-2 text-sm font-bold text-white transition hover:bg-[#b20710]"
+                  >
+                    Buy now
+                  </button>
+                  <a
+                    href={planWhatsApp(p)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="rounded-md bg-white px-4 py-2 text-center text-sm font-bold text-black transition hover:bg-white/80"
+                  >
+                    Book a call
+                  </a>
+                </div>
+              </td>
+            ))}
+          </tr>
         </tbody>
       </table>
     </div>

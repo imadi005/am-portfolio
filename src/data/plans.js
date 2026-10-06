@@ -118,7 +118,24 @@ export const COMPARE_ROWS = [
   { label: "Setup + first month", key: "cashStart", money: true },
 ];
 
-export const planWhatsApp = (plan) =>
-  `https://wa.me/916299043460?text=${encodeURIComponent(
-    `Hi A&M Productions, I'm interested in the done-for-you YouTube channel plans: PLAN ${plan.code} - ${plan.name} ($${plan.setup.toLocaleString("en-US")} setup + $${plan.monthly.toLocaleString("en-US")}/month, ${plan.share}% profit share). I'd like to book a call.`
-  )}`;
+export const planProductId = (plan) => `${plan.id}-start`;
+
+export const planWhatsApp = (plan) => {
+  const usd = (n) => `$${n.toLocaleString("en-US")}`;
+  const text = [
+    "Hi A&M Productions!",
+    "",
+    `I'd like to book a call about PLAN ${plan.code} - ${plan.name}:`,
+    `- Setup: ${usd(plan.setup)}, then ${usd(plan.monthly)}/month`,
+    `- Profit share: ${plan.share}%`,
+    `- Minimum term: ${plan.minTerm}`,
+    "",
+    "A bit about me:",
+    "Name:",
+    "Channel / business / niche:",
+    "Best time for a call (with time zone):",
+    "",
+    "Looking forward to hearing from you.",
+  ].join("\n");
+  return `https://wa.me/916299043460?text=${encodeURIComponent(text)}`;
+};

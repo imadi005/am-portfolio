@@ -42,7 +42,7 @@ export default function SearchOverlay() {
     [term]
   );
   const items = useMemo(
-    () => (term ? products.filter((p) => p.name.toLowerCase().includes(term)) : []),
+    () => (term ? products.filter((p) => !p.hidden && p.name.toLowerCase().includes(term)) : []),
     [term]
   );
 

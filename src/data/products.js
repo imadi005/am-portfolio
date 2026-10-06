@@ -1,3 +1,5 @@
+import { PLANS } from "./plans";
+
 // Product catalog for A&M Productions store.
 // Prices are in USD (source of truth). INR is derived at runtime via live FX rate.
 export const CATEGORIES = {
@@ -120,6 +122,23 @@ export const products = [
     ],
   },
 ];
+
+// Channel plans are payable from /plans ("Buy now"): setup fee plus the first month.
+// They are hidden from the shop grid and search.
+PLANS.forEach((plan) => {
+  products.push({
+    id: `${plan.id}-start`,
+    category: "Channel Plans",
+    hidden: true,
+    name: `Channel Plan ${plan.code} - ${plan.name} (setup + first month)`,
+    priceUSD: plan.cashStart,
+    duration: null,
+    features: [
+      `Setup fee ${plan.setup} USD plus first month ${plan.monthly} USD`,
+      `${plan.share}% profit share, minimum term ${plan.minTerm}`,
+    ],
+  });
+});
 
 export function getProductById(id) {
   return products.find((p) => p.id === id);
