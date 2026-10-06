@@ -10,7 +10,7 @@ const EPISODES = [
   {
     ep: "02",
     title: "1,000+ Collaborations",
-    text: "Over three years in the YouTube industry, we have worked with more than a thousand creators and industry professionals across every niche.",
+    text: "Since 2021, we have worked with more than a thousand creators and industry professionals across every niche.",
   },
   {
     ep: "03",

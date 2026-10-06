@@ -41,6 +41,10 @@ const OurStorySection = dynamic(() => import("../components/OurStorySection"), {
   loading: () => <LoadingPlaceholder />,
 });
 
+const TeamSection = dynamic(() => import("../components/TeamSection"), {
+  loading: () => <LoadingPlaceholder />,
+});
+
 const TopEditsSection = dynamic(() => import("../components/TopEditsSection"), {
   loading: () => <LoadingPlaceholder />,
 });
@@ -65,6 +69,8 @@ export default function Home() {
       <ClientResultsSection />
 
       <OurStorySection />
+
+      <TeamSection />
 
       <Footer />
 

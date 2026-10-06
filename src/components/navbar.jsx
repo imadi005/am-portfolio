@@ -45,6 +45,7 @@ export default function Navbar() {
     { name: "Browse", href: "#niches" },
     { name: "Results", href: "#results" },
     { name: "Our Story", href: "#story" },
+    { name: "Team", href: "#team" },
     { name: "Shop", href: "/shop", isPage: true },
     { name: `My List${ids.length ? ` (${ids.length})` : ""}`, href: "/my-list", isPage: true },
     { name: "Contact", href: whatsappLink, isExternal: true },

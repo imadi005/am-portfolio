@@ -78,7 +78,7 @@ export default function HeroSection() {
 
           <div className="mt-5 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm md:text-base font-semibold">
             <span className="text-green-400">Top Rated</span>
-            <span className="text-gray-300">3+ Years</span>
+            <span className="text-gray-300">Since 2021</span>
             <span className="text-gray-300">5000+ Edits</span>
             <span className="border border-gray-500 px-1.5 text-xs text-gray-300">4K</span>
           </div>
