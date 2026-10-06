@@ -92,7 +92,7 @@ export default function TopTenChart() {
             })}
           </ol>
 
-          <div className="order-1 mx-auto w-full max-w-[320px] md:order-2 md:max-w-none">
+          <div className="order-1 mx-auto w-full max-w-[240px] sm:max-w-[300px] md:order-2 md:max-w-none">
             <AnimatePresence mode="wait">
               <motion.div
                 key={edit.rank}

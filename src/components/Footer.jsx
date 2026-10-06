@@ -34,8 +34,8 @@ export default function Footer() {
   return (
     <footer className="border-t border-white/10 bg-black px-6 pb-10 pt-14 text-gray-400 md:px-16">
       <div className="mx-auto max-w-6xl">
-        <div className="grid gap-10 md:grid-cols-[1.4fr_repeat(3,1fr)]">
-          <div>
+        <div className="grid grid-cols-2 gap-8 md:grid-cols-[1.4fr_repeat(3,1fr)] md:gap-10">
+          <div className="col-span-2 md:col-span-1">
             <Link href="/" className="flex items-center gap-3">
               <img src="/logo.png" alt="A&M Productions" className="h-14 w-14 object-contain" />
               <span className="text-sm font-bold tracking-[0.3em] text-white">A&amp;M PRODUCTIONS</span>

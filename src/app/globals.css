@@ -127,14 +127,14 @@ html, body {
   animation: lightSweep 18s ease-in-out infinite alternate;
 }
 
-/* 🩸 Matte Button Styling */
-button {
-  transition: all 0.3s ease;
-  border-radius: 9999px;
-}
-button:hover {
-  transform: translateY(-1px);
-  filter: brightness(1.1);
+/* Matte Button Styling (in the base layer so Tailwind utilities like rounded-xl can override it) */
+@layer base {
+  button {
+    transition-property: color, background-color, border-color, opacity, box-shadow, transform;
+    transition-duration: 0.3s;
+    transition-timing-function: ease;
+    border-radius: 9999px;
+  }
 }
 
 /* 💡 Clean Red Accent */

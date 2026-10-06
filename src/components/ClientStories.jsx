@@ -63,8 +63,8 @@ export default function ClientStories() {
 
   return (
     <section className="relative w-full overflow-hidden bg-gradient-to-b from-black via-[#1a0000] to-black px-6 py-24 text-white md:px-16">
-      <div className="mx-auto grid max-w-6xl items-center gap-14 md:grid-cols-[1fr_auto]">
-        <div>
+      <div className="mx-auto grid max-w-6xl items-center gap-12 md:grid-cols-[1fr_auto] md:gap-14">
+        <div className="order-2 md:order-1">
           <p className="text-xs font-bold tracking-[0.35em] text-[#e50914]">CLIENT STORIES</p>
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
@@ -76,7 +76,7 @@ export default function ClientStories() {
             Voices That Define Our Impact
           </motion.h2>
           <p className="mt-4 max-w-lg text-lg text-gray-300">
-            Not testimonials we wrote. Stories our clients recorded. Tap through them, in their own words.
+            Hear what creators say about working with A&M. Tap through their stories.
           </p>
 
           <ol className="mt-10 max-w-md divide-y divide-white/10 border-y border-white/10">
@@ -105,7 +105,7 @@ export default function ClientStories() {
           </ol>
         </div>
 
-        <div ref={phoneRef} className="mx-auto">
+        <div ref={phoneRef} className="order-1 mx-auto md:order-2">
           <div className="relative rounded-[2.75rem] border-[10px] border-neutral-900 bg-neutral-900 shadow-[0_0_80px_rgba(229,9,20,0.4)] ring-1 ring-white/10">
             <div className="absolute left-1/2 top-2 z-30 h-5 w-24 -translate-x-1/2 rounded-full bg-black" />
             <div className="relative aspect-[2/3] w-[270px] overflow-hidden rounded-[2rem] bg-black sm:w-[310px]">

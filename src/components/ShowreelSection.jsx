@@ -112,19 +112,19 @@ export default function ShowreelSection() {
                 <div className="film-grain" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/60" />
 
-                <div className="relative flex h-full flex-col items-center justify-center gap-3 px-6 text-center">
-                  <img src="/logo.png" alt="" className="h-24 w-24 object-contain md:h-36 md:w-36" />
-                  <p className="text-xs font-bold tracking-[0.5em] text-gray-300 md:text-sm">A&amp;M PRODUCTIONS PRESENTS</p>
-                  <p className="text-5xl leading-none md:text-8xl font-[family-name:var(--font-bebas)]">
+                <div className="relative flex h-full flex-col items-center justify-center gap-1.5 px-4 text-center sm:gap-3 sm:px-6">
+                  <img src="/logo.png" alt="" className="h-9 w-9 object-contain sm:h-20 sm:w-20 md:h-36 md:w-36" />
+                  <p className="text-[9px] font-bold tracking-[0.35em] text-gray-300 sm:text-xs sm:tracking-[0.5em] md:text-sm">A&amp;M PRODUCTIONS PRESENTS</p>
+                  <p className="text-4xl leading-none sm:text-6xl md:text-8xl font-[family-name:var(--font-bebas)]">
                     THE <span className="text-[#e50914]">SHOWREEL</span>
                   </p>
-                  <span className="relative mt-4 flex h-20 w-20 items-center justify-center md:h-24 md:w-24">
+                  <span className="relative mt-1 flex h-12 w-12 items-center justify-center sm:mt-4 sm:h-20 sm:w-20 md:h-24 md:w-24">
                     <span className="absolute inset-0 animate-ping rounded-full bg-[#e50914]/40" />
                     <span className="relative flex h-full w-full items-center justify-center rounded-full bg-[#e50914] shadow-[0_0_50px_rgba(229,9,20,0.8)] transition group-hover:scale-110">
-                      <Play size={36} fill="white" className="ml-1" />
+                      <Play fill="white" className="ml-1 h-5 w-5 sm:h-9 sm:w-9" />
                     </span>
                   </span>
-                  <p className="mt-2 text-xs tracking-[0.3em] text-gray-400">OFFICIAL TRAILER · {fmt(duration)}</p>
+                  <p className="text-[9px] tracking-[0.25em] text-gray-400 sm:mt-2 sm:text-xs sm:tracking-[0.3em]">OFFICIAL TRAILER · {fmt(duration)}</p>
                 </div>
               </motion.button>
             )}

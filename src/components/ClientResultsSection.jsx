@@ -18,12 +18,13 @@ export default function ClientResultsSection() {
 
   return (
     <section id="results" className="relative w-full py-20 md:py-28 bg-gradient-to-b from-black via-[#120000] to-black overflow-hidden text-white scroll-mt-16">
+      <p className="px-4 text-center text-xs font-bold tracking-[0.35em] text-[#e50914]">THE PROOF</p>
       <motion.h2
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
         viewport={{ once: true }}
-        className="text-3xl sm:text-4xl md:text-6xl font-extrabold text-center mb-6 tracking-wide px-4"
+        className="mb-6 mt-1 px-4 text-center text-5xl uppercase md:text-7xl"
       >
         Results That Speak Louder Than Words
       </motion.h2>
