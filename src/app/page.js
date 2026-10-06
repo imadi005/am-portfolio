@@ -60,11 +60,11 @@ export default function Home() {
       <HeroSection />
 
 
+      <ShowreelSection />
+
       <TopEditsSection />
 
       <NichesSection />
-
-      <ShowreelSection />
 
       <ClientResultsSection />
 
