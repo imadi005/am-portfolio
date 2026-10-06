@@ -4,6 +4,7 @@ import { Suspense, useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import Navbar from "../../../components/navbar";
+import Footer from "../../../components/Footer";
 import { useCart } from "../../../context/CartContext";
 
 function SuccessContent() {
@@ -96,6 +97,9 @@ Deadline:`
         <Link href="/shop" className="mt-8 inline-block text-[#e50914] underline">
           Back to Shop
         </Link>
+      </div>
+      <div className="mt-10">
+        <Footer />
       </div>
     </main>
   );

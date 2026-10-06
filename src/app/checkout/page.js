@@ -4,6 +4,7 @@ import Script from "next/script";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Navbar from "../../components/navbar";
+import Footer from "../../components/Footer";
 import { useCart } from "../../context/CartContext";
 import { useCurrency } from "../../context/CurrencyContext";
 
@@ -134,6 +135,9 @@ export default function CheckoutPage() {
             {loading ? "Redirecting to Cashfree…" : `Pay ${format(totalUSD)} with Cashfree`}
           </button>
         </form>
+      </div>
+      <div className="mt-10">
+        <Footer />
       </div>
     </main>
   );

@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import Navbar from "../../components/navbar";
+import Footer from "../../components/Footer";
 import CurrencySwitcher from "../../components/shop/CurrencySwitcher";
 import { useCart } from "../../context/CartContext";
 import { useCurrency } from "../../context/CurrencyContext";
@@ -73,6 +74,9 @@ export default function CartPage() {
             </Link>
           </>
         )}
+      </div>
+      <div className="mt-10">
+        <Footer />
       </div>
     </main>
   );
