@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 
 import { useRef, useEffect, useState } from "react";
 import { motion } from "framer-motion";
@@ -59,10 +60,10 @@ export default function TopEditsSection() {
             transition={{ duration: 0.6 }}
             className="text-4xl font-extrabold md:text-6xl"
           >
-            Top 10 Edits 🎞️
+            Top 10 Edits
           </motion.h2>
           <p className="mx-auto mt-3 max-w-2xl text-gray-400">
-            A&M’s most cinematic, high-impact edits of the week — ranked by magic.
+            Our ten most-watched edits right now.
           </p>
         </div>
 
@@ -106,10 +107,12 @@ export default function TopEditsSection() {
                 {edit.rank}
               </span>
               <div className="relative z-20 h-full w-full overflow-hidden rounded-xl transition-all duration-300">
-                <img
+                <Image
                   src={edit.cover}
                   alt={edit.title}
-                  className="w-full h-full object-cover rounded-xl"
+                  fill
+                  sizes="260px"
+                  className="object-cover rounded-xl"
                 />
               </div>
             </motion.div>

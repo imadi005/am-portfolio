@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 
 import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
@@ -121,7 +122,7 @@ export default function NichesSection() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="text-gray-400 mt-3 text-base md:text-lg max-w-2xl mx-auto"
         >
-          30+ creative dimensions. Flowing infinitely — seamless, immersive, futuristic.
+          30+ niches. Pick one and press play.
         </motion.p>
       </div>
 
@@ -155,10 +156,13 @@ export default function NichesSection() {
               transition={{ duration: 0.3, ease: "easeOut" }}
               onClick={() => openModal(niche)}
             >
-              <img
+              <Image
                 src={niche.cover}
                 alt={niche.title}
-                className="absolute inset-0 h-full w-full object-cover"
+                fill
+                sizes="(max-width: 640px) 220px, 280px"
+                className="object-cover"
+                draggable={false}
               />
               <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-black via-black/70 to-transparent" />
               <div className="absolute bottom-4 inset-x-0 flex justify-center">

@@ -8,7 +8,7 @@ import dynamic from 'next/dynamic';
 // These load instantly because they are "above the fold".
 import Navbar from "../components/navbar";
 import HeroSection from "../components/HeroSection";
-import CinematicBridge from "../components/CinematicBridge";
+import Footer from "../components/Footer";
 
 // --- Lazy Loaded Components (Loaded only when needed) ---
 // We use next/dynamic to load these components only when they are about to be scrolled into view.
@@ -32,6 +32,10 @@ const NichesSection = dynamic(() => import("../components/NichesSection"), {
   loading: () => <LoadingPlaceholder />,
 });
 
+const OurStorySection = dynamic(() => import("../components/OurStorySection"), {
+  loading: () => <LoadingPlaceholder />,
+});
+
 const TopEditsSection = dynamic(() => import("../components/TopEditsSection"), {
   loading: () => <LoadingPlaceholder />,
 });
@@ -46,8 +50,6 @@ export default function Home() {
       {/* 🎥 Hero Section (Eager) */}
       <HeroSection />
 
-      {/* 🌌 Cinematic Bridge (Eager) */}
-      <CinematicBridge />
 
       {/* --- The rest of the sections are now lazy-loaded --- */}
 
@@ -62,6 +64,10 @@ export default function Home() {
       
       {/* ✨ Top Edits Section (Lazy) */}
       <TopEditsSection />
+
+      <OurStorySection />
+
+      <Footer />
 
       {/* 🩸 Footer Gradient */}
       <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-black to-transparent pointer-events-none" />

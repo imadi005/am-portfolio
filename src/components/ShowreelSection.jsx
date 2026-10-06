@@ -132,7 +132,7 @@ export default function ShowreelSection() {
           viewport={{ once: true, amount: 0.5 }}
           className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 tracking-wide"
         >
-          Every Frame Tells a Story
+          Every Frame Earns Its Place
         </motion.h2>
 
         <motion.p
@@ -142,7 +142,7 @@ export default function ShowreelSection() {
           viewport={{ once: true, amount: 0.5 }}
           className="text-base md:text-xl max-w-2xl mx-auto opacity-85"
         >
-          Experience the precision, pace, and passion behind our most viral edits.
+          Watch the showreel. Then let us edit yours.
         </motion.p>
 
         <motion.a

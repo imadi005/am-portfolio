@@ -47,6 +47,7 @@ export default function Navbar() {
     { name: "Home", href: "#home" },
     { name: "Results", href: "#results" },
     { name: "Watch Our Videos", href: "#niches" },
+    { name: "Our Story", href: "#story" },
     { name: "Shop", href: "/shop", isPage: true },
     { name: "Contact", href: whatsappLink, isExternal: true },
   ];

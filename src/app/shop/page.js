@@ -4,6 +4,7 @@ import { useRef } from "react";
 import Link from "next/link";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Navbar from "../../components/navbar";
+import Footer from "../../components/Footer";
 import CurrencySwitcher from "../../components/shop/CurrencySwitcher";
 import ProductCard from "../../components/shop/ProductCard";
 import { products, CATEGORIES } from "../../data/products";
@@ -82,6 +83,7 @@ export default function ShopPage() {
       <Row title="Cashcow Packages" items={cashcow} labelFor={(p) => (p.id === "premier-production" ? "FLAGSHIP" : null)} />
       <Row title="Video Editing" items={edits} />
       <Row title="More Services" items={others} />
+      <div className="mt-20"><Footer /></div>
     </main>
   );
 }
