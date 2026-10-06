@@ -3,9 +3,74 @@ import Image from "next/image";
 
 import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Plus, Check } from "lucide-react";
+import { useMyList } from "../context/ListContext";
 import { NICHES } from "../data/niches";
 import NicheModal from "./NicheModal";
+
+
+function NicheCard({ niche, onOpen }) {
+  const { has, toggle } = useMyList();
+  const [preview, setPreview] = useState(false);
+  const timer = useRef(null);
+  const videoId = niche.videos?.[0]?.id;
+  const saved = has(niche.id);
+
+  const enter = () => {
+    if (!window.matchMedia("(hover: hover)").matches) return;
+    timer.current = setTimeout(() => setPreview(true), 700);
+  };
+  const leave = () => {
+    clearTimeout(timer.current);
+    setPreview(false);
+  };
+
+  return (
+    <motion.div
+      className="group relative flex-shrink-0 w-[220px] h-[293px] sm:w-[250px] sm:h-[333px] md:w-[280px] md:h-[373px] rounded-lg overflow-hidden"
+      initial={{ scale: 0.97, opacity: 0.9 }}
+      whileHover={{ scale: 1.08, opacity: 1, zIndex: 20, boxShadow: "0 0 30px 6px rgba(229, 9, 20, 0.6)" }}
+      transition={{ duration: 0.3, ease: "easeOut" }}
+      onMouseEnter={enter}
+      onMouseLeave={leave}
+      onClick={() => onOpen(niche)}
+    >
+      <Image
+        src={niche.cover}
+        alt={niche.title}
+        fill
+        sizes="(max-width: 640px) 220px, 280px"
+        className="object-cover"
+        draggable={false}
+      />
+      {preview && videoId && (
+        <iframe
+          title={`${niche.title} preview`}
+          src={`https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&controls=0&modestbranding=1&playsinline=1&rel=0&loop=1&playlist=${videoId}`}
+          allow="autoplay; encrypted-media"
+          className="pointer-events-none absolute inset-0 h-full w-[300%] max-w-none -translate-x-[33%] scale-110"
+        />
+      )}
+      <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-black via-black/80 to-transparent" />
+      <div className="absolute inset-x-0 bottom-0 p-3">
+        <p className="text-lg font-bold leading-tight text-white">{niche.title}</p>
+        <div className="mt-1 hidden items-center justify-between group-hover:flex">
+          <span className="truncate text-xs text-gray-300">{(niche.tags || []).slice(0, 3).join(" · ")}</span>
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              toggle(niche.id);
+            }}
+            aria-label={saved ? "Remove from My List" : "Add to My List"}
+            className="ml-2 flex-shrink-0 rounded-full border border-white/70 p-1 text-white hover:border-white hover:bg-white/20"
+          >
+            {saved ? <Check size={16} /> : <Plus size={16} />}
+          </button>
+        </div>
+      </div>
+    </motion.div>
+  );
+}
 
 export default function NichesSection() {
   const [open, setOpen] = useState(false);
@@ -23,6 +88,23 @@ export default function NichesSection() {
     setSelected(niche);
     setOpen(true);
   };
+
+  useEffect(() => {
+    const show = (id) => {
+      const niche = NICHES.find((n) => n.id === id);
+      if (!niche) return;
+      setSelected(niche);
+      setOpen(true);
+    };
+    const pending = sessionStorage.getItem("pending-niche");
+    if (pending) {
+      sessionStorage.removeItem("pending-niche");
+      show(pending);
+    }
+    const onEvent = (e) => show(e.detail);
+    window.addEventListener("open-niche", onEvent);
+    return () => window.removeEventListener("open-niche", onEvent);
+  }, []);
 
   /* --------------------- SCROLL LOGIC --------------------- */
 
@@ -103,24 +185,24 @@ export default function NichesSection() {
 
   /* --------------------- RENDER --------------------- */
   return (
-    <section id="niches" className="relative w-full bg-black py-20 text-white overflow-hidden">
+    <section id="niches" className="relative w-full bg-black py-10 text-white overflow-hidden scroll-mt-16">
       {/* Title */}
-      <div className="mx-auto mb-12 text-center px-4">
+      <div className="mb-6 px-6 md:px-16">
         <motion.h2
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight"
+          className="text-4xl md:text-5xl"
         >
-          Explore Our Work
+          Browse by Niche
         </motion.h2>
         <motion.p
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-gray-400 mt-3 text-base md:text-lg max-w-2xl mx-auto"
+          className="text-gray-400 mt-1 text-base md:text-lg max-w-2xl"
         >
           30+ niches. Pick one and press play.
         </motion.p>
@@ -143,34 +225,7 @@ export default function NichesSection() {
           }}
         >
           {[...NICHES, ...NICHES].map((niche, i) => (
-            <motion.div
-              key={`${niche.id}-${i}`}
-              className="relative flex-shrink-0 w-[220px] h-[293px] sm:w-[250px] sm:h-[333px] md:w-[280px] md:h-[373px] rounded-lg overflow-hidden"
-              initial={{ scale: 0.95, opacity: 0.85 }}
-              whileHover={{
-                scale: 1.08,
-                opacity: 1,
-                zIndex: 20,
-                boxShadow: "0 0 30px 6px rgba(255, 0, 0, 0.7)",
-              }}
-              transition={{ duration: 0.3, ease: "easeOut" }}
-              onClick={() => openModal(niche)}
-            >
-              <Image
-                src={niche.cover}
-                alt={niche.title}
-                fill
-                sizes="(max-width: 640px) 220px, 280px"
-                className="object-cover"
-                draggable={false}
-              />
-              <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-black via-black/70 to-transparent" />
-              <div className="absolute bottom-4 inset-x-0 flex justify-center">
-                <span className="bg-black/60 px-4 py-1.5 text-sm font-semibold text-white rounded-md">
-                  {niche.title}
-                </span>
-              </div>
-            </motion.div>
+            <NicheCard key={`${niche.id}-${i}`} niche={niche} onOpen={openModal} />
           ))}
         </div>
 

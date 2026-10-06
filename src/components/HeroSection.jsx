@@ -1,9 +1,22 @@
 "use client";
 import Link from "next/link";
+import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { FaPlay, FaInfoCircle } from "react-icons/fa";
+import { Volume2, VolumeX } from "lucide-react";
+import { useProfile, PROFILES } from "../context/ProfileContext";
 
 export default function HeroSection() {
+  const { profile } = useProfile();
+  const active = profile || PROFILES.creator;
+  const videoRef = useRef(null);
+  const [muted, setMuted] = useState(true);
+  const external = active.cta.href.startsWith("http");
+  const toggleMute = () => {
+    if (!videoRef.current) return;
+    videoRef.current.muted = !videoRef.current.muted;
+    setMuted(videoRef.current.muted);
+  };
   const handleScroll = (e, id) => {
     e.preventDefault();
     document.querySelector(id)?.scrollIntoView({ behavior: "smooth" });
@@ -15,6 +28,7 @@ export default function HeroSection() {
       className="relative h-screen min-h-[600px] flex items-end md:items-center overflow-hidden bg-black text-white"
     >
       <video
+        ref={videoRef}
         src="/hero.mp4"
         autoPlay
         loop
@@ -29,6 +43,19 @@ export default function HeroSection() {
       <div className="absolute inset-x-0 bottom-0 h-48 z-10 bg-gradient-to-t from-black to-transparent" />
       <div className="absolute inset-0 z-10 bg-gradient-to-b from-black/70 via-transparent to-transparent h-40" />
       <div className="film-grain z-10" />
+
+      <div className="absolute bottom-24 right-0 z-20 hidden items-center gap-3 md:flex">
+        <button
+          onClick={toggleMute}
+          aria-label={muted ? "Unmute trailer" : "Mute trailer"}
+          className="rounded-full border border-white/60 p-3 text-white transition hover:bg-white/20"
+        >
+          {muted ? <VolumeX size={20} /> : <Volume2 size={20} />}
+        </button>
+        <span className="border-l-4 border-[#e50914] bg-black/50 py-2 pl-3 pr-8 text-sm text-gray-200">
+          Now playing: A&amp;M Reel
+        </span>
+      </div>
 
       <div className="relative z-20 w-full px-6 md:px-16 pb-24 md:pb-0 max-w-3xl">
         <motion.div
@@ -57,8 +84,7 @@ export default function HeroSection() {
           </div>
 
           <p className="mt-4 max-w-xl text-base md:text-xl text-gray-200">
-            Cinematic YouTube edits engineered to hold attention. 170+ channels, 110M+ views and
-            counting.
+            {active.tagline} 170+ channels, 110M+ views and counting.
           </p>
 
           <div className="mt-8 flex flex-col sm:flex-row gap-3">
@@ -70,10 +96,12 @@ export default function HeroSection() {
               <FaPlay /> Watch Showreel
             </a>
             <Link
-              href="/shop"
+              href={active.cta.href}
+              target={external ? "_blank" : undefined}
+              rel={external ? "noopener noreferrer" : undefined}
               className="flex items-center justify-center gap-3 rounded-md bg-gray-500/60 px-8 py-3 text-lg font-bold text-white backdrop-blur transition hover:bg-gray-500/40"
             >
-              <FaInfoCircle /> Browse Services
+              <FaInfoCircle /> {active.cta.label}
             </Link>
           </div>
         </motion.div>

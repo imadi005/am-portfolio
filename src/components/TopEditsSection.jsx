@@ -50,19 +50,19 @@ export default function TopEditsSection() {
   return (
     // We use a React Fragment to return two separate sections
     <>
-      <section className="relative w-full bg-black py-20 text-white overflow-hidden">
+      <section id="top10" className="relative w-full bg-black pt-24 pb-10 text-white overflow-hidden scroll-mt-16">
         {/* Header */}
-        <div className="mx-auto mb-10 text-center">
+        <div className="mb-4 px-6 md:px-16">
           <motion.h2
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-4xl font-extrabold md:text-6xl"
+            className="text-4xl md:text-5xl"
           >
             Top 10 Edits
           </motion.h2>
-          <p className="mx-auto mt-3 max-w-2xl text-gray-400">
+          <p className="mt-1 max-w-2xl text-gray-400">
             Our ten most-watched edits right now.
           </p>
         </div>

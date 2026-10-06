@@ -15,8 +15,13 @@ import Footer from "../components/Footer";
 // This makes the initial page load much faster.
 
 const LoadingPlaceholder = () => (
-  <div className="w-full h-screen flex items-center justify-center bg-black">
-    <p className="text-gray-500">Loading Section...</p>
+  <div className="w-full bg-black px-6 py-10 md:px-16">
+    <div className="skeleton h-8 w-56 rounded" />
+    <div className="mt-6 flex gap-4 overflow-hidden">
+      {Array.from({ length: 6 }).map((_, i) => (
+        <div key={i} className="skeleton h-[293px] w-[220px] flex-shrink-0 rounded-lg" />
+      ))}
+    </div>
   </div>
 );
 
@@ -51,19 +56,13 @@ export default function Home() {
       <HeroSection />
 
 
-      {/* --- The rest of the sections are now lazy-loaded --- */}
+      <TopEditsSection />
 
-      {/* 🔴 Showreel Section (Lazy) */}
+      <NichesSection />
+
       <ShowreelSection />
 
-      {/* 🚀 Client Results Section (Lazy) */}
       <ClientResultsSection />
-      
-      {/* 🎨 Niches Section (Lazy) */}
-      <NichesSection />
-      
-      {/* ✨ Top Edits Section (Lazy) */}
-      <TopEditsSection />
 
       <OurStorySection />
 

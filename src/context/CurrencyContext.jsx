@@ -5,7 +5,7 @@ import { createContext, useContext, useEffect, useState, useCallback } from "rea
 const CurrencyContext = createContext(null);
 
 // Fallback rate used only if the live FX API is unreachable.
-const FALLBACK_USD_TO_INR = 88.5;
+const FALLBACK_USD_TO_INR = 96;
 const REFRESH_MS = 10 * 60 * 1000; // refresh every 10 minutes
 
 export function CurrencyProvider({ children }) {
@@ -16,10 +16,10 @@ export function CurrencyProvider({ children }) {
 
   const fetchRate = useCallback(async () => {
     try {
-      const res = await fetch("https://api.frankfurter.app/latest?from=USD&to=INR");
+      const res = await fetch("/api/rate");
       if (!res.ok) throw new Error("FX request failed");
       const data = await res.json();
-      const liveRate = data?.rates?.INR;
+      const liveRate = data?.live ? data.rate : null;
       if (liveRate) {
         setRate(liveRate);
         setRateUpdatedAt(new Date());

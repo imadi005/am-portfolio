@@ -1,10 +1,19 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Bebas_Neue } from "next/font/google";
 import "./globals.css";
 import { CurrencyProvider } from "../context/CurrencyContext";
 import { CartProvider } from "../context/CartContext";
+import { ListProvider } from "../context/ListContext";
+import { ProfileProvider } from "../context/ProfileContext";
+import AppChrome from "../components/AppChrome";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
+  subsets: ["latin"],
+});
+
+const bebas = Bebas_Neue({
+  variable: "--font-bebas",
+  weight: "400",
   subsets: ["latin"],
 });
 
@@ -23,10 +32,17 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${bebas.variable} antialiased pb-14 md:pb-0`}
       >
         <CurrencyProvider>
-          <CartProvider>{children}</CartProvider>
+          <CartProvider>
+            <ListProvider>
+              <ProfileProvider>
+                {children}
+                <AppChrome />
+              </ProfileProvider>
+            </ListProvider>
+          </CartProvider>
         </CurrencyProvider>
       </body>
     </html>

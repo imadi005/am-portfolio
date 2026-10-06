@@ -337,3 +337,22 @@ section {
     scrollbar-width: none;
   }
 }
+
+/* Display typography: condensed cinematic headings */
+h1, h2, h3 {
+  font-family: var(--font-bebas), var(--font-geist-sans), sans-serif;
+  letter-spacing: 0.02em;
+  font-weight: 400;
+}
+h1 { line-height: 0.95; }
+
+/* Skeleton shimmer loaders */
+@keyframes shimmer {
+  0% { background-position: -400px 0; }
+  100% { background-position: 400px 0; }
+}
+.skeleton {
+  background: linear-gradient(90deg, #111 25%, #1c1c1c 37%, #111 63%);
+  background-size: 800px 100%;
+  animation: shimmer 1.4s infinite linear;
+}

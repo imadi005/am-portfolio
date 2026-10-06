@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { getProductById } from "../../../data/products";
+import { getUsdToInr } from "../../../lib/fx";
 
 const CASHFREE_API_VERSION = "2023-08-01";
 
@@ -10,17 +11,6 @@ function getCashfreeBaseUrl() {
     : "https://sandbox.cashfree.com/pg";
 }
 
-async function getUsdToInrRate() {
-  try {
-    const res = await fetch("https://api.frankfurter.app/latest?from=USD&to=INR", {
-      cache: "no-store",
-    });
-    const data = await res.json();
-    return data?.rates?.INR || 88.5;
-  } catch {
-    return 88.5;
-  }
-}
 
 export async function POST(request) {
   try {
@@ -57,7 +47,7 @@ export async function POST(request) {
     const orderCurrency = currency === "INR" ? "INR" : "USD";
     let orderAmount = totalUSD;
     if (orderCurrency === "INR") {
-      const rate = await getUsdToInrRate();
+      const { rate } = await getUsdToInr();
       orderAmount = Math.round(totalUSD * rate * 100) / 100;
     } else {
       orderAmount = Math.round(totalUSD * 100) / 100;
