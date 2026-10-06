@@ -186,51 +186,57 @@ export default function NichesSection() {
         <div className="mt-6" onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
           <Spotlight niche={active} onPlay={play} />
 
-          <motion.div layout className="mt-6 grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-4 lg:grid-cols-4">
-            <AnimatePresence initial={false}>
-              {visible.map((n) => {
-                const on = n.id === active.id;
-                return (
-                  <motion.button
-                    layout
-                    key={n.id}
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.95 }}
-                    transition={{ duration: 0.3 }}
-                    onClick={() => setActiveId(n.id)}
-                    className={`group relative aspect-video overflow-hidden rounded-lg bg-neutral-900 text-left transition ${
-                      on ? "ring-2 ring-[#e50914]" : "ring-1 ring-white/10 hover:ring-white/40"
+          <motion.div
+            key={`${genre}-${showAll}`}
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4 }}
+            className="mt-6 grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-5 lg:grid-cols-4"
+          >
+            {visible.map((n) => {
+              const on = n.id === active.id;
+              return (
+                <button
+                  key={n.id}
+                  onClick={() => setActiveId(n.id)}
+                  className={`group relative isolate aspect-video overflow-hidden rounded-xl bg-neutral-900 text-left transition duration-300 ${
+                    on
+                      ? "ring-2 ring-[#e50914] shadow-[0_0_30px_rgba(229,9,20,0.45)]"
+                      : "ring-1 ring-white/10 hover:-translate-y-1 hover:ring-white/40"
+                  }`}
+                >
+                  <img
+                    src={thumb(n.videos[0].id)}
+                    alt={n.title}
+                    loading="lazy"
+                    className={`h-full w-full object-cover saturate-[0.8] contrast-110 transition duration-500 group-hover:scale-105 group-hover:saturate-100 ${
+                      on ? "saturate-100" : "brightness-[0.65] group-hover:brightness-90"
                     }`}
-                  >
-                    <img
-                      src={thumb(n.videos[0].id)}
-                      alt={n.title}
-                      loading="lazy"
-                      className={`h-full w-full object-cover transition duration-500 group-hover:scale-110 ${
-                        on ? "" : "brightness-75 group-hover:brightness-100"
-                      }`}
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent" />
-                    <div className="absolute inset-x-0 bottom-0 flex items-end justify-between p-3">
-                      <span className="text-2xl leading-none font-[family-name:var(--font-bebas)]">{n.title}</span>
-                      <span className="text-[10px] tracking-widest text-gray-300">{n.videos.length} VIDEOS</span>
-                    </div>
-                    <span
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        play(n);
-                      }}
-                      role="button"
-                      aria-label={`Play ${n.title}`}
-                      className="absolute right-2 top-2 flex h-9 w-9 items-center justify-center rounded-full bg-white/90 text-black opacity-0 transition group-hover:opacity-100"
-                    >
-                      <Play size={16} fill="currentColor" className="ml-0.5" />
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
+                  <div className="absolute inset-0 bg-[#e50914]/10 mix-blend-overlay" />
+                  <div className="absolute inset-x-0 bottom-0 p-3.5">
+                    <span className="block text-3xl leading-none text-white drop-shadow font-[family-name:var(--font-bebas)]">
+                      {n.title}
                     </span>
-                  </motion.button>
-                );
-              })}
-            </AnimatePresence>
+                    <span className="mt-1 block text-[10px] font-semibold tracking-[0.25em] text-gray-300">
+                      {n.videos.length} VIDEOS
+                    </span>
+                  </div>
+                  <span
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      play(n);
+                    }}
+                    role="button"
+                    aria-label={`Play ${n.title}`}
+                    className="absolute right-3 top-3 flex h-10 w-10 items-center justify-center rounded-full bg-white/90 text-black opacity-0 shadow-lg transition group-hover:opacity-100"
+                  >
+                    <Play size={16} fill="currentColor" className="ml-0.5" />
+                  </span>
+                </button>
+              );
+            })}
           </motion.div>
 
           {genre === "all" && list.length > INITIAL_COUNT && (
