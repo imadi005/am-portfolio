@@ -3,7 +3,6 @@ import "./globals.css";
 import { CurrencyProvider } from "../context/CurrencyContext";
 import { CartProvider } from "../context/CartContext";
 import { ListProvider } from "../context/ListContext";
-import { ProfileProvider } from "../context/ProfileContext";
 import AppChrome from "../components/AppChrome";
 
 const geistSans = Geist({
@@ -44,10 +43,8 @@ export default function RootLayout({ children }) {
         <CurrencyProvider>
           <CartProvider>
             <ListProvider>
-              <ProfileProvider>
-                {children}
-                <AppChrome />
-              </ProfileProvider>
+              {children}
+              <AppChrome />
             </ListProvider>
           </CartProvider>
         </CurrencyProvider>

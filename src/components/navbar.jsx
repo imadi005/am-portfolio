@@ -6,14 +6,12 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ShoppingCart, Search } from "lucide-react";
 import { useCart } from "../context/CartContext";
 import { useMyList } from "../context/ListContext";
-import { useProfile } from "../context/ProfileContext";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { itemCount } = useCart();
   const { ids } = useMyList();
-  const { profile, setProfile } = useProfile();
   const pathname = usePathname();
   const router = useRouter();
 
@@ -46,7 +44,6 @@ export default function Navbar() {
     { name: "Browse", href: "#niches" },
     { name: "Results", href: "#results" },
     { name: "Our Story", href: "#story" },
-    { name: "Team", href: "#team" },
     { name: "Shop", href: "/shop", isPage: true },
     { name: `My List${ids.length ? ` (${ids.length})` : ""}`, href: "/my-list", isPage: true },
     { name: "Contact", href: whatsappLink, isExternal: true },
@@ -105,17 +102,6 @@ export default function Navbar() {
               </span>
             )}
           </Link>
-
-          {profile && (
-            <button
-              onClick={() => setProfile(null)}
-              title="Switch profile"
-              aria-label="Switch profile"
-              className={`hidden sm:flex h-8 w-8 items-center justify-center rounded ${profile.color} text-sm font-bold text-white`}
-            >
-              {profile.name[0]}
-            </button>
-          )}
 
           <div className="lg:hidden">
             <button onClick={() => setMobileMenuOpen(true)} aria-label="Menu">

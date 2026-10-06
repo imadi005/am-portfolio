@@ -4,14 +4,10 @@ import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { FaPlay, FaInfoCircle } from "react-icons/fa";
 import { Volume2, VolumeX } from "lucide-react";
-import { useProfile, PROFILES } from "../context/ProfileContext";
 
 export default function HeroSection() {
-  const { profile } = useProfile();
-  const active = profile || PROFILES.creator;
   const videoRef = useRef(null);
   const [muted, setMuted] = useState(true);
-  const external = active.cta.href.startsWith("http");
   const toggleMute = () => {
     if (!videoRef.current) return;
     videoRef.current.muted = !videoRef.current.muted;
@@ -84,7 +80,7 @@ export default function HeroSection() {
           </div>
 
           <p className="mt-4 max-w-xl text-base md:text-xl text-gray-200">
-            {active.tagline} 170+ channels, 110M+ views and counting.
+            Edits that make your channel grow. 170+ channels, 110M+ views and counting.
           </p>
 
           <div className="mt-8 flex flex-col sm:flex-row gap-3">
@@ -96,12 +92,10 @@ export default function HeroSection() {
               <FaPlay /> Watch Showreel
             </a>
             <Link
-              href={active.cta.href}
-              target={external ? "_blank" : undefined}
-              rel={external ? "noopener noreferrer" : undefined}
+              href="/shop"
               className="flex items-center justify-center gap-3 rounded-md bg-gray-500/60 px-8 py-3 text-lg font-bold text-white backdrop-blur transition hover:bg-gray-500/40"
             >
-              <FaInfoCircle /> {active.cta.label}
+              <FaInfoCircle /> Browse Services
             </Link>
           </div>
         </motion.div>
