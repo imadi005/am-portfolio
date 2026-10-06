@@ -53,6 +53,18 @@ const sections = [
     ],
   },
   {
+    h: "YouTube channel plans (PLAN 50, 30, 10 and 0)",
+    list: [
+      "These are done-for-you channel management plans for creators, brands, businesses, agencies and sellers. The plan, setup fee, monthly fee, minimum term and deliverables you choose are set out on the Channel Plans page and confirmed in your contract and invoice.",
+      "You own the channel. We act as manager with access you can remove at any time, and we work with analytics access so results can be reported transparently.",
+      "Setup fee: 50% to start and 50% at launch. Monthly fee: paid in advance on the 1st of each month. Profit share: paid by the 10th of the month with an Analytics screenshot.",
+      "Net channel profit means channel revenue (AdSense, sponsors, affiliate and, where relevant, attributed Amazon Brand Referral Bonus) minus direct costs such as tools and paid promotion. Our own fees are not deducted from it.",
+      "Each plan has a minimum term (PLAN 50 and 30: 6 months, PLAN 10: 4 months, PLAN 0: 3 months). Monthly fees continue through the minimum term.",
+      "We use real human voice or face, or real product footage, with original scripts, to follow YouTube's policies on inauthentic content. You agree to provide the product access (if relevant), brand assets, review time and, for Amazon Attribution, Brand Registry access that the plan requires.",
+      "We do not guarantee views, subscribers, YouTube Partner Program approval, sales or income. Amazon and YouTube programs and policies can change and apply to you as the channel owner.",
+    ],
+  },
+  {
     h: "Monetized channels",
     p: [
       "Monetized channels are sold as described on the product page (monetization enabled, 1K subscribers, 4K watch hours, niche as stated). The handover is arranged with you directly after payment.",

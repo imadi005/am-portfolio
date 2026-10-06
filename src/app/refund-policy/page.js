@@ -27,6 +27,15 @@ const sections = [
     ],
   },
   {
+    h: "YouTube channel plans (PLAN 50, 30, 10 and 0)",
+    list: [
+      "Setup fee: refundable if your channel is not launched within 21 days because of A&M.",
+      "Monthly fees: if we miss the agreed number of delivered videos for a month, we refund the last 2 months of fees.",
+      "Profit guarantee (PLAN 50 and PLAN 30 only): no profit share is charged until the channel makes a net profit.",
+      "Because channel profit usually takes several months to appear, these plans are not covered by the general rule above that payments are non-refundable once work has started. The terms in this section apply to them instead.",
+    ],
+  },
+  {
     h: "Failed or duplicate payments",
     p: [
       "If your payment fails but money was deducted, or you were charged twice for the same order, the amount is returned to the original payment method. Banks usually take 5-7 working days to show it.",

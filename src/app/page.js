@@ -24,6 +24,7 @@ const ShowreelSection = lazy(() => import("../components/ShowreelSection"));
 const TopTenChart = lazy(() => import("../components/TopTenChart"));
 const NichesSection = lazy(() => import("../components/NichesSection"));
 const HowItWorks = lazy(() => import("../components/HowItWorks"));
+const PlansTeaser = lazy(() => import("../components/PlansTeaser"));
 const ClientResultsSection = lazy(() => import("../components/ClientResultsSection"));
 const OurStorySection = lazy(() => import("../components/OurStorySection"));
 const TeamSection = lazy(() => import("../components/TeamSection"));
@@ -39,6 +40,7 @@ export default function Home() {
       <TopTenChart />
       <NichesSection />
       <HowItWorks />
+      <PlansTeaser />
       <ClientResultsSection />
       <OurStorySection />
       <TeamSection />

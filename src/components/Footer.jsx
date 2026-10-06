@@ -8,6 +8,7 @@ const COLUMNS = [
       { label: "Showreel", href: "/#showreel" },
       { label: "Browse Niches", href: "/#niches" },
       { label: "Shop", href: "/shop" },
+      { label: "Channel Plans", href: "/plans" },
       { label: "My List", href: "/my-list" },
     ],
   },
