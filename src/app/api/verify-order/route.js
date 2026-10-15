@@ -50,5 +50,6 @@ export async function GET(request) {
     orderStatus: cfData.order_status,
     orderAmount: cfData.order_amount,
     orderCurrency: cfData.order_currency,
+    createdAt: cfData.created_at || null,
   });
 }
