@@ -6,8 +6,8 @@ import { useCart } from "../context/CartContext";
 import { useCurrency } from "../context/CurrencyContext";
 
 export default function CartPill() {
-  const { itemCount, totalUSD } = useCart();
-  const { format } = useCurrency();
+  const { itemCount, items } = useCart();
+  const { formatAmount, cartTotal } = useCurrency();
   const pathname = usePathname();
 
   if (itemCount === 0 || pathname.startsWith("/cart") || pathname.startsWith("/checkout")) return null;
@@ -19,7 +19,7 @@ export default function CartPill() {
     >
       <ShoppingCart size={17} />
       <span>
-        Cart ({itemCount}) · {format(totalUSD)}
+        Cart ({itemCount}) · {formatAmount(cartTotal(items))}
       </span>
     </Link>
   );

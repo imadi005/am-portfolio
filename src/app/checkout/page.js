@@ -9,8 +9,8 @@ import { useCart } from "../../context/CartContext";
 import { useCurrency } from "../../context/CurrencyContext";
 
 export default function CheckoutPage() {
-  const { items, totalUSD } = useCart();
-  const { currency, format } = useCurrency();
+  const { items } = useCart();
+  const { currency, formatAmount, unitPrice, cartTotal } = useCurrency();
   const router = useRouter();
 
   const [sdkReady, setSdkReady] = useState(false);
@@ -89,12 +89,12 @@ export default function CheckoutPage() {
               <span>
                 {item.name} × {item.qty}
               </span>
-              <span>{format(item.priceUSD * item.qty)}</span>
+              <span>{formatAmount(unitPrice(item) * item.qty)}</span>
             </div>
           ))}
           <div className="mt-4 flex justify-between border-t border-white/10 pt-4 text-lg font-bold">
             <span>Total ({currency})</span>
-            <span>{format(totalUSD)}</span>
+            <span>{formatAmount(cartTotal(items))}</span>
           </div>
         </div>
 
@@ -132,7 +132,7 @@ export default function CheckoutPage() {
             disabled={loading}
             className="w-full rounded-full bg-[#e50914] px-6 py-3 text-lg font-semibold hover:bg-[#c40812] disabled:opacity-50"
           >
-            {loading ? "Redirecting to Cashfree…" : `Pay ${format(totalUSD)} with Cashfree`}
+            {loading ? "Redirecting to Cashfree…" : `Pay ${formatAmount(cartTotal(items))} with Cashfree`}
           </button>
         </form>
       </div>

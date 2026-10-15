@@ -51,18 +51,24 @@ export function CurrencyProvider({ children }) {
     return usdAmount;
   };
 
-  const format = (usdAmount) => {
-    const amount = convert(usdAmount);
-    return new Intl.NumberFormat(currency === "INR" ? "en-IN" : "en-US", {
+  const formatAmount = (amount) =>
+    new Intl.NumberFormat(currency === "INR" ? "en-IN" : "en-US", {
       style: "currency",
       currency,
       maximumFractionDigits: currency === "INR" ? 0 : 2,
     }).format(amount);
-  };
+
+  const format = (usdAmount) => formatAmount(convert(usdAmount));
+
+  // Per-product pricing: honours fixed INR offers, otherwise converts from USD.
+  const isOffer = (product) => currency === "INR" && Boolean(product?.offer?.priceINR);
+  const unitPrice = (product) => (isOffer(product) ? product.offer.priceINR : convert(product.priceUSD));
+  const formatProduct = (product) => formatAmount(unitPrice(product));
+  const cartTotal = (items) => items.reduce((sum, i) => sum + unitPrice(i) * i.qty, 0);
 
   return (
     <CurrencyContext.Provider
-      value={{ currency, changeCurrency, rate, rateUpdatedAt, rateError, convert, format }}
+      value={{ currency, changeCurrency, rate, rateUpdatedAt, rateError, convert, format, formatAmount, isOffer, unitPrice, formatProduct, cartTotal }}
     >
       {children}
     </CurrencyContext.Provider>

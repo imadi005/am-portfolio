@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useCurrency } from "../context/CurrencyContext";
 
 export default function PriceTicker() {
-  const { format } = useCurrency();
+  const { format, formatAmount, currency } = useCurrency();
   const items = [
     { t: "Now showing: your next video", href: "#packages" },
     { t: `Tickets from ${format(29.99)}`, href: "#packages" },
@@ -12,6 +12,9 @@ export default function PriceTicker() {
     { t: `The studio deal from ${format(1200)} setup`, href: "#channel-plans" },
     { t: "Pay in USD or INR", href: "#packages" },
   ];
+  if (currency === "INR") {
+    items.splice(1, 0, { t: `Limited time: Advanced Artistry at ${formatAmount(3650)}`, href: "#packages" });
+  }
   const row = [...items, ...items];
 
   return (

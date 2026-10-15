@@ -36,6 +36,8 @@ export const products = [
   },
   {
     id: "advanced-artistry",
+    // Limited-time offer: in INR this product is sold at a fixed price instead of the live conversion.
+    offer: { priceINR: 3650, label: "LIMITED TIME OFFER" },
     category: CATEGORIES.CASHCOW,
     name: "Advanced Artistry",
     priceUSD: 59.99,

@@ -18,8 +18,9 @@ const GRADS = [
 
 function Ticket3({ product, index }) {
   const { addItem, clearCart } = useCart();
-  const { format } = useCurrency();
+  const { format, formatProduct, isOffer } = useCurrency();
   const router = useRouter();
+  const offer = isOffer(product);
   const [added, setAdded] = useState(false);
 
   const add = () => {
@@ -63,7 +64,11 @@ function Ticket3({ product, index }) {
         <span className="absolute -top-3 left-[-12px] h-6 w-6 rounded-full bg-black md:left-[-12px] md:top-[-12px]" />
         <span className="absolute -top-3 right-[-12px] h-6 w-6 rounded-full bg-black md:bottom-[-12px] md:left-[-12px] md:right-auto md:top-auto" />
         <p className="text-[10px] font-bold tracking-[0.4em] text-gray-500">ADMIT ONE</p>
-        <p className="text-4xl font-bold text-white">{format(product.priceUSD)}</p>
+        {offer && (
+          <span className="rounded bg-[#e50914] px-2 py-0.5 text-[10px] font-bold tracking-widest text-white">{product.offer.label}</span>
+        )}
+        {offer && <p className="text-sm text-gray-500 line-through">{format(product.priceUSD)}</p>}
+        <p className="text-4xl font-bold text-white">{formatProduct(product)}</p>
         <button
           onClick={add}
           className="flex w-full items-center justify-center gap-2 rounded-md bg-[#e50914] px-4 py-2.5 text-sm font-bold text-white shadow-[0_0_20px_rgba(229,9,20,0.45)] transition hover:bg-[#b20710]"

@@ -13,7 +13,8 @@ const POSTER_GRADIENTS = [
 ];
 
 export default function ProductCard({ product, index = 0, label }) {
-  const { format } = useCurrency();
+  const { format, formatProduct, isOffer } = useCurrency();
+  const offer = isOffer(product);
   const { addItem } = useCart();
   const [added, setAdded] = useState(false);
 
@@ -58,7 +59,15 @@ export default function ProductCard({ product, index = 0, label }) {
       </div>
 
       <div className="relative z-10 flex items-center justify-between">
-        <span className="text-xl font-extrabold text-white">{format(product.priceUSD)}</span>
+        <div>
+          {offer && (
+            <span className="mb-1 inline-block rounded bg-[#e50914] px-2 py-0.5 text-[10px] font-bold tracking-widest text-white">
+              {product.offer.label}
+            </span>
+          )}
+          {offer && <p className="text-xs text-gray-500 line-through">{format(product.priceUSD)}</p>}
+          <span className="text-xl font-extrabold text-white">{formatProduct(product)}</span>
+        </div>
         <button
           onClick={handleAdd}
           className="rounded-md bg-white px-4 py-2 text-sm font-bold text-black transition hover:bg-white/80"

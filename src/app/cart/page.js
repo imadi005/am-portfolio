@@ -8,8 +8,8 @@ import { useCart } from "../../context/CartContext";
 import { useCurrency } from "../../context/CurrencyContext";
 
 export default function CartPage() {
-  const { items, updateQty, removeItem, totalUSD } = useCart();
-  const { format } = useCurrency();
+  const { items, updateQty, removeItem } = useCart();
+  const { formatProduct, formatAmount, unitPrice, cartTotal } = useCurrency();
 
   return (
     <main className="min-h-screen bg-black text-white">
@@ -37,7 +37,7 @@ export default function CartPage() {
                 >
                   <div>
                     <h3 className="font-semibold">{item.name}</h3>
-                    <p className="text-sm text-gray-400">{format(item.priceUSD)} each</p>
+                    <p className="text-sm text-gray-400">{formatProduct(item)} each</p>
                   </div>
                   <div className="flex items-center gap-3">
                     <input
@@ -48,7 +48,7 @@ export default function CartPage() {
                       className="w-16 rounded border border-white/20 bg-black px-2 py-1 text-center"
                     />
                     <span className="w-24 text-right font-semibold">
-                      {format(item.priceUSD * item.qty)}
+                      {formatAmount(unitPrice(item) * item.qty)}
                     </span>
                     <button
                       onClick={() => removeItem(item.id)}
@@ -63,7 +63,7 @@ export default function CartPage() {
 
             <div className="mt-10 flex items-center justify-between border-t border-white/10 pt-6">
               <span className="text-xl font-bold">Total</span>
-              <span className="text-2xl font-bold">{format(totalUSD)}</span>
+              <span className="text-2xl font-bold">{formatAmount(cartTotal(items))}</span>
             </div>
 
             <Link

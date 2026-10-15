@@ -35,23 +35,20 @@ export async function POST(request) {
     }
 
     // Recompute the total server-side from the product catalog — never trust client-submitted prices.
-    let totalUSD = 0;
+    const orderCurrency = currency === "INR" ? "INR" : "USD";
+    const { rate } = orderCurrency === "INR" ? await getUsdToInr() : { rate: 1 };
+
+    let orderAmount = 0;
     for (const { id, qty } of items) {
       const product = getProductById(id);
       if (!product || !Number.isFinite(qty) || qty <= 0) {
         return NextResponse.json({ error: `Invalid item: ${id}` }, { status: 400 });
       }
-      totalUSD += product.priceUSD * qty;
+      // INR offers (e.g. limited-time pricing) use their fixed INR price; everything else converts from USD.
+      const unit = orderCurrency === "INR" ? product.offer?.priceINR ?? product.priceUSD * rate : product.priceUSD;
+      orderAmount += unit * qty;
     }
-
-    const orderCurrency = currency === "INR" ? "INR" : "USD";
-    let orderAmount = totalUSD;
-    if (orderCurrency === "INR") {
-      const { rate } = await getUsdToInr();
-      orderAmount = Math.round(totalUSD * rate * 100) / 100;
-    } else {
-      orderAmount = Math.round(totalUSD * 100) / 100;
-    }
+    orderAmount = Math.round(orderAmount * 100) / 100;
 
     const orderId = `am_order_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;
     const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || new URL(request.url).origin;
