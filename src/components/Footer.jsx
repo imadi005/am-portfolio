@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { BUSINESS } from "../data/business";
 
 const COLUMNS = [
   {
@@ -44,6 +45,18 @@ export default function Footer() {
             <p className="mt-4 max-w-xs text-sm leading-relaxed">
               Cinematic YouTube editing, scripts, thumbnails and channels. Crafted frame by frame since 2021.
             </p>
+            <ul className="mt-4 space-y-1 text-sm">
+              <li>
+                <a href={`mailto:${BUSINESS.email}`} className="transition hover:text-white">
+                  {BUSINESS.email}
+                </a>
+              </li>
+              <li>
+                <a href={`tel:${BUSINESS.phoneTel}`} className="transition hover:text-white">
+                  {BUSINESS.phoneDisplay}
+                </a>
+              </li>
+            </ul>
             <a
               href="https://wa.me/916299043460"
               target="_blank"
@@ -71,7 +84,9 @@ export default function Footer() {
         </div>
 
         <div className="mt-12 flex flex-col items-center justify-between gap-3 border-t border-white/10 pt-6 text-xs md:flex-row">
-          <p>© {new Date().getFullYear()} A&amp;M Productions. All rights reserved.</p>
+          <p>
+            © {new Date().getFullYear()} A&amp;M Productions. Operated by {BUSINESS.legalName}. All rights reserved.
+          </p>
           <p>Secure payments by Cashfree · Pay in USD or INR</p>
         </div>
       </div>

@@ -2,6 +2,7 @@ import Link from "next/link";
 import { FaWhatsapp } from "react-icons/fa";
 import Navbar from "../../components/navbar";
 import Footer from "../../components/Footer";
+import { BUSINESS } from "../../data/business";
 
 export const metadata = {
   title: "Contact",
@@ -29,7 +30,7 @@ export default function ContactPage() {
           <p className="text-xs font-bold tracking-[0.35em] text-[#e50914]">CONTACT</p>
           <h1 className="mt-2 text-5xl md:text-7xl">Let&apos;s talk</h1>
           <p className="mt-4 max-w-xl text-lg text-gray-300">
-            The fastest way to reach us is WhatsApp. Message us for anything below and we will reply there.
+            The fastest way to reach us is WhatsApp. You can also email or call us for anything below.
           </p>
 
           <a
@@ -40,7 +41,37 @@ export default function ContactPage() {
           >
             <FaWhatsapp size={26} /> Chat on WhatsApp
           </a>
-          <p className="mt-3 text-sm text-gray-500">+91 62990 43460</p>
+          <p className="mt-3 text-sm text-gray-500">WhatsApp {BUSINESS.whatsappDisplay}</p>
+
+          <div className="mt-12 rounded-2xl border border-white/10 bg-gradient-to-br from-[#1a0003] to-black p-6 md:p-8">
+            <p className="text-xs font-bold tracking-[0.35em] text-[#e50914]">BUSINESS DETAILS</p>
+            <dl className="mt-4 grid gap-5 sm:grid-cols-2">
+              <div>
+                <dt className="text-[10px] font-bold tracking-widest text-gray-500">TRADE NAME</dt>
+                <dd className="mt-1 text-lg">{BUSINESS.tradeName}</dd>
+              </div>
+              <div>
+                <dt className="text-[10px] font-bold tracking-widest text-gray-500">OPERATED BY</dt>
+                <dd className="mt-1 text-lg">{BUSINESS.legalName}</dd>
+              </div>
+              <div>
+                <dt className="text-[10px] font-bold tracking-widest text-gray-500">EMAIL</dt>
+                <dd className="mt-1 text-lg">
+                  <a href={`mailto:${BUSINESS.email}`} className="underline decoration-[#e50914] underline-offset-4 transition hover:text-[#e50914]">
+                    {BUSINESS.email}
+                  </a>
+                </dd>
+              </div>
+              <div>
+                <dt className="text-[10px] font-bold tracking-widest text-gray-500">PHONE</dt>
+                <dd className="mt-1 text-lg">
+                  <a href={`tel:${BUSINESS.phoneTel}`} className="underline decoration-[#e50914] underline-offset-4 transition hover:text-[#e50914]">
+                    {BUSINESS.phoneDisplay}
+                  </a>
+                </dd>
+              </div>
+            </dl>
+          </div>
 
           <div className="mt-14 grid gap-4 sm:grid-cols-2">
             {TOPICS.map((x) => (

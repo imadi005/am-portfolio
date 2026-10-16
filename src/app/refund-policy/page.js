@@ -44,7 +44,7 @@ const sections = [
   {
     h: "How to ask for a refund",
     list: [
-      "Message us on WhatsApp with your order ID (shown on the confirmation page) within 7 days of payment.",
+      "Message us on WhatsApp, or email aditya94727@gmail.com, with your order ID (shown on the confirmation page) within 7 days of payment.",
       "Tell us briefly what went wrong.",
       "We reply with a decision and, if a refund is approved, process it to your original payment method. Refunds in INR or USD are returned in the currency you paid in.",
     ],

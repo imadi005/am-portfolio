@@ -30,7 +30,7 @@ const sections = [
   {
     h: "If something is delayed or missing",
     p: [
-      "If you have paid and not heard from us, or a delivery link does not work, message us on WhatsApp with your order ID and we will fix it promptly.",
+      "If you have paid and not heard from us, or a delivery link does not work, message us on WhatsApp or email aditya94727@gmail.com with your order ID and we will fix it promptly.",
     ],
   },
 ];

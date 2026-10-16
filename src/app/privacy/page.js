@@ -7,6 +7,12 @@ export const metadata = {
 
 const sections = [
   {
+    h: "Who we are",
+    p: [
+      "This website is operated by Aditya Mishra, trading as A&M Productions. You can reach us at aditya94727@gmail.com or +91 99556 06731, or on WhatsApp.",
+    ],
+  },
+  {
     h: "What we collect",
     list: [
       "Order details: your name, email address and phone number, which you enter at checkout, and what you ordered.",
@@ -52,7 +58,7 @@ const sections = [
   {
     h: "Your choices",
     list: [
-      "You can ask us to correct or delete your personal information by messaging us on WhatsApp. We will do so unless we are required to keep it by law.",
+      "You can ask us to correct or delete your personal information by emailing aditya94727@gmail.com or messaging us on WhatsApp. We will do so unless we are required to keep it by law.",
       "You can clear your cart, currency and My List at any time by clearing your browser data.",
     ],
   },

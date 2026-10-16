@@ -9,7 +9,7 @@ const sections = [
   {
     h: "About us",
     p: [
-      "A&M Productions (also trading as A&M Graphical Productions, \"A&M\", \"we\", \"us\") provides YouTube video editing, script writing, thumbnail design and related digital services, and offers monetized YouTube channels for sale, through amgproductions.studio.",
+      "A&M Productions (also trading as A&M Graphical Productions, \"A&M\", \"we\", \"us\"), operated by Aditya Mishra, provides YouTube video editing, script writing, thumbnail design and related digital services, and offers monetized YouTube channels for sale, through amgproductions.studio.",
       "By placing an order or using this website you agree to these terms.",
     ],
   },
