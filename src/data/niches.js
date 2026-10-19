@@ -3,7 +3,6 @@ export const NICHES = [
   {
   id: "space",
   title: "Space",
-  cover: "/niches/space.png",
   tagline: "Can you outwork your limits?",
   description: "An odyssey through galaxies, black holes, and human curiosity. Each frame captures the vastness of the cosmos — mysterious, silent, and limitless.",
   tags: ["Cosmos", "Exploration", "Science"],
@@ -16,7 +15,6 @@ export const NICHES = [
   {
   id: "lego",
   title: "LEGO",
-  cover: "/niches/lego.png",
   tagline: "Build your world, one brick at a time.",
   description: "Clean, structured visuals celebrating creativity and design precision — where minimalism meets imagination.",
   tags: ["Design", "Creativity", "Precision"],
@@ -29,7 +27,6 @@ export const NICHES = [
   {
   id: "alien",
   title: "Alien",
-  cover: "/niches/alien.png",
   tagline: "Not from this world.",
   description: "A mysterious presence that challenges what we know about life, light, and existence. Designed to evoke curiosity and awe through simplicity.",
   tags: ["Mystery", "Extraterrestrial", "Sci-Fi"],
@@ -42,7 +39,6 @@ export const NICHES = [
   {
   id: "wildlife",
   title: "Wildlife",
-  cover: "/niches/wildlife.png",
   tagline: "Where nature roars in silence.",
   description: "At AMG Productions, we’ve brought the wild to life — crafting stunning cashcow documentaries that blend cinematic realism with captivating narration. From the stealth of predators to the rhythm of the forests, our visuals and voiceovers make nature feel alive and powerful.",
   tags: ["Nature", "Documentary", "Voiceover"],
@@ -55,7 +51,6 @@ export const NICHES = [
   {
   id: "handguns",
   title: "Handguns",
-  cover: "/niches/handguns.png",
   tagline: "Precision. Power. Perfection.",
   description: "AMG Productions delivers cinematic handgun videos with crisp motion, deep voiceovers, and a thrilling sense of realism.",
   tags: ["Weapons", "Cinematic", "Action"],
@@ -68,7 +63,6 @@ export const NICHES = [
   {
   id: "history",
   title: "History",
-  cover: "/niches/history.png",
   tagline: "Every era has a story.",
   description: "AMG Productions turns history into cinematic storytelling — powerful cashcow videos blending facts, voice, and emotion.",
   tags: ["History", "Cinematic", "Education"],
@@ -81,7 +75,6 @@ export const NICHES = [
   {
   id: "finance",
   title: "Finance",
-  cover: "/niches/finance.png",
   tagline: "Where money meets mindset.",
   description: "AMG Productions crafts sharp, data-driven finance videos that simplify wealth and captivate audiences worldwide.",
   tags: ["Finance", "Wealth", "Business"],
@@ -94,7 +87,6 @@ export const NICHES = [
   {
   id: "celebrity",
   title: "Celebrity",
-  cover: "/niches/celebrity.png",
   tagline: "Fame. Flair. Focus.",
   description: "AMG Productions crafts captivating celebrity stories — bold edits, immersive voiceovers, and unmatched engagement.",
   tags: ["Fame", "Entertainment", "Stories"],
@@ -107,7 +99,6 @@ export const NICHES = [
   {
   id: "travel",
   title: "Travel",
-  cover: "/niches/travel.png",
   tagline: "The world, through our lens.",
   description: "AMG Productions creates breathtaking travel videos — cinematic visuals, rich storytelling, and immersive voiceovers that take viewers places.",
   tags: ["Adventure", "Exploration", "Cinematic"],
@@ -120,7 +111,6 @@ export const NICHES = [
   {
   id: "science",
   title: "Science",
-  cover: "/niches/science.png",
   tagline: "Curiosity in motion.",
   description: "AMG Productions brings science to life — smart visuals, deep voiceovers, and stories that make knowledge cinematic.",
   tags: ["Discovery", "Education", "Innovation"],
@@ -133,7 +123,6 @@ export const NICHES = [
   {
   id: "mystery",
   title: "Mystery",
-  cover: "/niches/mystery.png",
   tagline: "Every silence hides a story.",
   description: "AMG Productions crafts gripping mystery videos with cinematic tension, immersive narration, and perfect pacing.",
   tags: ["Thriller", "Suspense", "Storytelling"],
@@ -146,7 +135,6 @@ export const NICHES = [
   {
   id: "health",
   title: "Health",
-  cover: "/niches/health.png",
   tagline: "Wellness, redefined.",
   description: "AMG Productions produces impactful health videos with calm storytelling, expert tone, and visually rich voiceover content.",
   tags: ["Wellness", "Lifestyle", "Awareness"],
@@ -159,7 +147,6 @@ export const NICHES = [
   {
   id: "us-president",
   title: "President",
-  cover: "/niches/president.png",
   tagline: "Power. Policy. Presence.",
   description: "AMG Productions delivers compelling presidential documentaries — deep voiceovers, dramatic pacing, and cinematic visuals.",
   tags: ["Politics", "Leadership", "Documentary"],
@@ -172,7 +159,6 @@ export const NICHES = [
   {
   id: "bts",
   title: "BTS",
-  cover: "/niches/bts.png",
   tagline: "Beyond the stage.",
   description: "AMG Productions captures the essence of BTS — cinematic edits, emotional storytelling, and unmatched fan engagement.",
   tags: ["Music", "K-Pop", "Culture"],
@@ -185,7 +171,6 @@ export const NICHES = [
   {
   id: "biography",
   title: "Biography",
-  cover: "/niches/biography.png",
   tagline: "Every life is a legacy.",
   description: "AMG Productions creates powerful biography videos — cinematic storytelling that turns lives into timeless narratives.",
   tags: ["Biography", "Storytelling", "Inspiration"],
@@ -198,7 +183,6 @@ export const NICHES = [
   {
   id: "world-economy",
   title: "World Economy",
-  cover: "/niches/world-economy.png",
   tagline: "The world in numbers.",
   description: "AMG Productions turns global economics into cinematic storytelling — bold visuals, sharp narration, and data that captivates.",
   tags: ["Economy", "Global", "Finance"],
@@ -211,7 +195,6 @@ export const NICHES = [
   {
   id: "oh-boy-style",
   title: "Oh-Boy Style",
-  cover: "/niches/oh-boy-style.png",
   tagline: "Stories that stick.",
   description: "AMG Productions nails the stick-animation format — witty scripting, bold voiceovers, and chaos-driven visuals that dominate retention.",
   tags: ["Animation", "Humor", "Storytelling"],
@@ -223,7 +206,6 @@ export const NICHES = [
   {
   id: "motivation",
   title: "Motivation",
-  cover: "/niches/motivation.png",
   tagline: "Fuel for the relentless.",
   description: "AMG Productions crafts powerful motivational videos — cinematic voiceovers, emotional pacing, and visuals that drive action.",
   tags: ["Inspiration", "Discipline", "Success"],
@@ -235,7 +217,6 @@ export const NICHES = [
   {
   id: "tractors",
   title: "Tractors",
-  cover: "/niches/tractors.png",
   tagline: "Power that drives progress.",
   description: "AMG Productions captures the might of machines — cinematic tractor edits with roaring sound design and crisp voiceovers.",
   tags: ["Machines", "Agriculture", "Power"],
@@ -248,7 +229,6 @@ export const NICHES = [
   {
   id: "prisoners",
   title: "Prisoners",
-  cover: "/niches/prisoners.png",
   tagline: "Behind bars, beyond stories.",
   description: "AMG Productions builds gripping prisoner documentaries — real stories, deep narration, and hard-hitting visuals.",
   tags: ["Crime", "Documentary", "Real Stories"],
@@ -261,7 +241,6 @@ export const NICHES = [
   {
   id: "aviation",
   title: "Aviation: Jets",
-  cover: "/niches/aviation.png",
   tagline: "Speed in silence.",
   description: "AMG Productions crafts stunning jet edits — cinematic visuals, thunderous sound, and a taste of pure power.",
   tags: ["Aviation", "Jets", "Engineering"],
@@ -274,7 +253,6 @@ export const NICHES = [
   {
   id: "youtube-celebs",
   title: "YouTube Celebs",
-  cover: "/niches/youtube-celebs.png",
   tagline: "Creators who built empires.",
   description: "AMG Productions showcases the rise of YouTube icons — cinematic edits, dynamic storytelling, and viral retention mastery.",
   tags: ["Creators", "Influencers", "Entertainment"],
@@ -287,7 +265,6 @@ export const NICHES = [
   {
   id: "biker-clubs",
   title: "Biker Clubs",
-  cover: "/niches/biker-clubs.png",
   tagline: "Ride with purpose.",
   description: "AMG Productions captures the spirit of biker brotherhood — raw edits, cinematic motion, and voices that echo the open road.",
   tags: ["Bikes", "Brotherhood", "Lifestyle"],
@@ -300,7 +277,6 @@ export const NICHES = [
   {
   id: "elon-musk",
   title: "Elon Musk",
-  cover: "/niches/elon-musk.png",
   tagline: "The man who builds tomorrow.",
   description: "AMG Productions creates high-impact videos on Elon Musk — visionary storytelling, futuristic tone, and crisp, inspiring edits.",
   tags: ["Innovation", "Technology", "Entrepreneurship"],
@@ -313,7 +289,6 @@ export const NICHES = [
   {
   id: "nba",
   title: "NBA",
-  cover: "/niches/nba.png",
   tagline: "Greatness never rests.",
   description: "AMG Productions crafts electrifying NBA edits — dynamic storytelling, intense commentary, and stunning highlight transitions.",
   tags: ["Sports", "Basketball", "Highlights"],
@@ -326,7 +301,6 @@ export const NICHES = [
   {
   id: "f1",
   title: "F1",
-  cover: "/niches/f1.png",
   tagline: "Speed. Sound. Spectacle.",
   description: "AMG Productions brings Formula 1 to life — cinematic race edits, fierce commentary, and pure adrenaline storytelling.",
   tags: ["Racing", "Motorsport", "Speed"],
@@ -339,7 +313,6 @@ export const NICHES = [
   {
   id: "sci-fi",
   title: "Sci-Fi",
-  cover: "/niches/sci-fi.png",
   tagline: "Future imagined, frame by frame.",
   description: "AMG Productions builds immersive sci-fi worlds — stunning visuals, futuristic sound design, and deep narrative voiceovers.",
   tags: ["Futurism", "Technology", "Imagination"],
@@ -352,7 +325,6 @@ export const NICHES = [
   {
   id: "technology-ai",
   title: "Technology & AI",
-  cover: "/niches/technology-ai.png",
   tagline: "Code that shapes the future.",
   description: "AMG Productions simplifies complex tech — cinematic AI explainers with futuristic visuals and impactful storytelling.",
   tags: ["Technology", "AI", "Innovation"],
@@ -364,7 +336,6 @@ export const NICHES = [
    {
   id: "luxury-lifestyle",
   title: "Luxury / Rich Lifestyle",
-  cover: "/niches/luxury-lifestyle.png",
   tagline: "Elegance in every frame.",
   description: "AMG Productions showcases opulence — cinematic lifestyle videos that radiate class, wealth, and perfection.",
   tags: ["Luxury", "Lifestyle", "Wealth"],
@@ -376,7 +347,6 @@ export const NICHES = [
   {
   id: "true-crime",
   title: "True Crime",
-  cover: "/niches/true-crime.png",
   tagline: "Every clue tells a story.",
   description: "AMG Productions builds chilling true crime videos — tense narration, dramatic pacing, and visually gripping storytelling.",
   tags: ["Crime", "Mystery", "Documentary"],
@@ -389,7 +359,6 @@ export const NICHES = [
  {
   id: "mythology",
   title: "Mythology / Ancient Civilizations",
-  cover: "/niches/mythology.png",
   tagline: "Legends never die.",
   description: "AMG Productions recreates lost worlds — cinematic storytelling, divine voiceovers, and visuals that revive forgotten myths.",
   tags: ["History", "Mythology", "Legends"],

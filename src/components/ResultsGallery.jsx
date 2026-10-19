@@ -4,7 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { ChevronLeft, ChevronRight, Maximize2, X, ZoomIn } from "lucide-react";
 
 const COUNT = 17;
-const IMAGES = Array.from({ length: COUNT }).map((_, i) => `/results/r${i + 1}.jpeg`);
+const IMAGES = Array.from({ length: COUNT }).map((_, i) => `/results/r${i + 1}.webp`);
 const AUTO_MS = 5000;
 
 export default function ResultsGallery() {
