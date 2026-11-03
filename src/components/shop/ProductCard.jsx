@@ -14,7 +14,7 @@ const POSTER_GRADIENTS = [
 
 export default function ProductCard({ product, index = 0, label }) {
   const { format, formatProduct, isOffer } = useCurrency();
-  const offer = isOffer(product);
+  const offer = isOffer(product) && Boolean(product.offer.label);
   const { addItem } = useCart();
   const [added, setAdded] = useState(false);
 

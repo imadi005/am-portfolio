@@ -20,7 +20,7 @@ function Ticket3({ product, index }) {
   const { addItem, clearCart } = useCart();
   const { format, formatProduct, isOffer } = useCurrency();
   const router = useRouter();
-  const offer = isOffer(product);
+  const offer = isOffer(product) && Boolean(product.offer.label);
   const [added, setAdded] = useState(false);
 
   const add = () => {

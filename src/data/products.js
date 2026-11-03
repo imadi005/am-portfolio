@@ -23,6 +23,8 @@ export const products = [
   },
   {
     id: "standard-storyboard",
+    // Fixed INR price (no limited-time badge).
+    offer: { priceINR: 4073 },
     category: CATEGORIES.CASHCOW,
     name: "Standard Storyboard",
     priceUSD: 44.99,
