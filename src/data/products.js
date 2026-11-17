@@ -66,6 +66,8 @@ export const products = [
   },
   {
     id: "script-writing",
+    // Fixed INR price (no limited-time badge).
+    offer: { priceINR: 2000 },
     category: CATEGORIES.INDIVIDUAL,
     name: "Script Writing",
     priceUSD: 10.0,
